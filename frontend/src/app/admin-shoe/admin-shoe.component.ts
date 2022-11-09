@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-shoe.component.css']
 })
 export class AdminShoeComponent implements OnInit {
-
+  value = 'Clear me';
   constructor() { }
 
   ngOnInit(): void {

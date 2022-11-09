@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 
 import { HttpClientModule } from "@angular/common/http";
 
@@ -56,6 +57,7 @@ import { FormsModule } from "@angular/forms";
 
   ],
   imports: [
+    NgxMatFileInputModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

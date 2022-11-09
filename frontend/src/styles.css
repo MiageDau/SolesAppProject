@@ -9,6 +9,9 @@ img:focus-visible{
 .mat-form-field-appearance-fill .mat-form-field-flex{
     background-color:white;
 }
+.mat-form-field-appearance-fill .mat-form-field-flex{
+    padding:0px !important;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
