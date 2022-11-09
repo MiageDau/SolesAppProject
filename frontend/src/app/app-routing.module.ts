@@ -6,6 +6,8 @@ import { ProfilComponent } from './profil/profil.component';
 import { RatingComponent } from './rating/rating.component';
 import { ShoePageComponent } from './shoe-page/shoe-page.component';
 import { ShoesPageComponent } from './shoes-page/shoes-page.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
@@ -15,8 +17,9 @@ const routes: Routes = [
   {path:"profil",component:ProfilComponent},
   {path:"shoes",component:ShoesPageComponent},
   {path:"rating",component:RatingComponent},
-  {path:"admin",component:AdminShoeComponent}
- 
+  {path:"admin",component:AdminShoeComponent},
+  {path:"login", component:LoginComponent},
+  {path:"register", component:RegisterComponent}
 ];
 
 @NgModule({
