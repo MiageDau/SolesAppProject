@@ -5,6 +5,30 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './header/header.component';
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatIconModule } from "@angular/material/icon";
+import { ShoePageComponent } from './shoe-page/shoe-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
+import {MatGridListModule} from '@angular/material/grid-list'; 
+import {MatCardModule} from '@angular/material/card'; 
+import {MatTabsModule} from '@angular/material/tabs'; 
+import { MatButtonModule } from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select'; 
+import {MatListModule} from '@angular/material/list'; 
+import { MatDividerModule } from "@angular/material/divider";
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { ProfilComponent } from './profil/profil.component'; 
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ShoesPageComponent } from './shoes-page/shoes-page.component';
+import { RatingComponent } from './rating/rating.component'; 
+import {MatSliderModule} from '@angular/material/slider'; 
+
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,21 +38,50 @@ import { FormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
+
+    HeaderComponent,
+    ShoePageComponent,
+    HomePageComponent,
+    ProfilComponent,
+    ShoesPageComponent,
+    RatingComponent
+
     LoginComponent,
     RegisterComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatProgressSpinnerModule,
+    MatGridListModule,
+    MatCardModule,
+    MatListModule,
+    MatButtonToggleModule,
+    MatTabsModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatDividerModule,
+    MatSlideToggleModule,
+    MatProgressBarModule,
+    MatSnackBarModule,
+    MatSliderModule
+    
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

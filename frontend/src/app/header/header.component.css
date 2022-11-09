@@ -1,0 +1,27 @@
+
+#logo{
+    width: 200px;
+z-index: 2;
+cursor: pointer;
+}
+.example-icon{
+    color:black;
+
+}
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  .mat-toolbar{
+    background:white;
+  }
+#header-search{
+    width:500px;
+}
+
+#nav-img{
+  margin-right:50px;
+  cursor:pointer;
+}
+.mat-toolbar{
+ height:100px;
+}
