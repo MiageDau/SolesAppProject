@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Fuzzy+Bubbles:wght@700&family=Righteous&display=swap');
+#select-home{
+    width:5%;
+}
+.mat-select-value{
+    width:20% !important;
+}
+#img-home{
+    width:80px;
+    border-radius: 50%;
+    height:80px;
+    
+}
+#item-home{
+    margin-left:10px;
+    font-size:19px;
+    font-weight: bold;
+}
+#sub-item-home{
+    font-size:14px;
+    margin-left:110px;
+}
+.fond{
+    background-image: url("../../assets/img/sneakers-pfa-dossier.jpg");
+    height:80%;
+    width:100%;
+    background-repeat: no-repeat;
+}
+#catalog-home{
+    text-align: center;
+    font-size:27px;
+    font-family: 'Anton', sans-serif;
+}
+#select-home-p{
+    text-align: center;
+    font-size:14px;
+}
+input{
+    width:400px;
+    height:30px;
+}
+.mat-form-field{
+    display:block;
+    margin:auto;
+    text-align: center;
+}
+.carousel-inner{
+    height:500px;
+}
+
+#connect-nav{
+    z-index: 2;
+color: white;
+}
+.carousel-control-prev
+{
+    width:50px;
+}

@@ -1,0 +1,71 @@
+body{
+    margin-top:20px;
+    background-color: #eaeaea;
+}
+.main{
+    padding:15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.sidebar{
+    background-color: #333;
+    color:white;
+    height:100%
+}
+.sidebar a{
+    margin-left:10px;
+    display: block;
+    color:white;
+    padding-bottom: 10px;
+    font-size:30px;
+    text-decoration: none;
+}
+.card{
+    position:relative;
+    display: flex;
+    flex-direction: column;
+}
+.content{
+    background-color: whitesmoke;
+}
+img{
+    border-radius:50%;
+    width:150px;
+    display:block;
+    margin:auto;
+}
+.mat-card-header-text{
+    text-align: center;
+    margin:auto;
+}
+.black-card{
+    background-color:#333;
+    color:white;
+}
+#nom-mat{
+    text-align: center;
+margin: auto;
+width: 250px;
+}
+.img-mat{
+    margin-top:10px;
+}
+#basket{
+    float:right;
+}
+.side-module{
+    margin:auto;
+    display: block;
+    width:350px;
+}
+h2{
+    text-align: center;
+}
+#nbre-avis{
+    color:#3f51b5;
+}
+.content{
+    background-color:white;
+}
+.example-card2{
+    margin-top:10px;
+}

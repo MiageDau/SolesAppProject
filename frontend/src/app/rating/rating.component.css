@@ -1,0 +1,18 @@
+
+img{
+    
+    width:-webkit-fill-available;
+    width:-moz-available;
+}
+.col-lg-7{
+    display:flex;
+    justify-content: center;
+    flex-direction:column;
+    width:300px;
+    margin-left:150px;
+}
+#center-btn{
+    margin:auto;
+    display: block;
+    width:200px;
+}

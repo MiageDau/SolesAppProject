@@ -1,0 +1,69 @@
+.espace-cli{
+    margin-top:40px;
+}
+h1{
+    font-family: SharpGroteskMedium,Helvetica Neue,Arial,Lucida Grande,sans-serif;
+font-size: 26px;
+line-height: 1.5;
+color: #000;
+display: block;
+}
+.btn {
+    width:200px;
+    margin-top:20px;
+}
+form{
+    margin: auto;
+    display: block;
+    width: 500px;
+  }
+.form-group{
+    margin-top:20px;
+}
+.form-check{
+    margin-top:10px;
+}
+#new-client{
+    margin-left:10px;
+}
+#new-inscr{
+    color:#ff5401;
+    cursor:pointer;
+}
+.example-card{
+    display:inline-block;
+    width:300px;
+    margin-right:20px;
+    margin-bottom:20px;
+}
+.note-btn{
+    text-align: center;
+margin: auto;
+display: block;
+width: 100px;
+
+}
+.mat-card-title{
+    font-size:17px;
+    width:200px;
+    display:block;
+    margin:auto;
+}
+.mat-card-image{
+    
+    height:300px;
+}
+#bg-img{
+    background-color:#f6f6f6;
+}
+#align-right{
+    display:flex;
+    justify-content: end;
+}
+#h1-div{
+    margin-top:20px;
+}
+#bold-select{
+    font-style:oblique;
+    font-weight:500;
+}
