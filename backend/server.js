@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 const { Cookie } = require('express-session');
 
 const User = require('./models/users');
+const { request, response } = require('express');
 
 
 // Configuration et connexion avec la base de données
@@ -34,6 +35,77 @@ app.use(session({
     secret:"mySecretKey",
     cookie:{maxAge: 24*60*60}
 }));
+
+
+
+//Middleware de connexion
+app.post('/login',(request, response) =>{
+    User.findOne({login: request.body.login, password:request.body.password}, (error,user)=>{
+        if(error) return response.status(401).json({msg: "Error"});
+        if(!user) return response.status(401).json({msg: "Wrong login"});
+        request.session.userId = user._id;
+        response.status(200).json({
+            login:user.login,
+            fullname: user.fullname
+        });
+    });
+})
+//Fin du Middleware de connexion
+
+//Middleware d'enregistrement
+app.post('/register',(request, response)=>{
+    var newUser = new User({
+        login: request.body.login,
+        password: request.body.password,
+        fullname: request.body.fullname
+    });
+    console.log(newUser);
+    User.countDocuments({login: newUser.login}, (err,count)=>{
+        if(err) return response.status(401).json({msg:"Error"});
+        if(count>0){
+            return response.status(409).json({msg:"This login already exists !!"});
+        }
+        else{
+            newUser.save((error,user)=>{
+                if(error) return console.error(err);
+                request.session.userId = user._id;
+                response.status(200).json({
+                    login: user.login,
+                    fullname: user.fullname
+                });
+            });
+        }
+    console.log("User successfully added");
+    });
+});
+//Fin du Middleware d'enregistrement
+
+//Middleware de Logout
+app.get('/logout', (request, response) => {
+    request.session.destroy(error =>{
+        if(error) return response.status(409).json({msg:"Error"});
+        response.status(200).json({msg: "Logout OK"});
+    })
+});
+//Fin du Middleware de Logout
+
+//Middleware IsLogged
+
+app.get('/isLogged', (request,response) => {
+    if(!request.session.userId) return response.status(401).json();
+
+    User.findOne( {_id: request.session.userId}, (error,user) => {
+        if(error) return response.status(401).json({msg:"Error"});
+        if(!user) return response.status(401).json({msg:"Error"});
+        request.session.userId = user._id;
+        response.status(200).json({
+            login: user.login,
+            fullname: user.fullname
+        });
+    });
+});
+//Fin du Middleware IsLogged
+
 
 
 

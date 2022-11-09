@@ -1,0 +1,43 @@
+<div class="container mt-4">
+    <div class="titre">
+        <h1>Espace de création de compte</h1>
+        <hr>
+    </div>
+    <div class="container mt-3">
+        <div class="registerForm">
+            <form method="post" >
+                <div class="row">
+                    <!-- login input -->
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Login</mat-label>
+                        <input matInput type="text" placeholder="Enter your login" >
+                    </mat-form-field>
+                </div>
+                <div class="row mt-4">
+
+                    <!-- password input -->
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" placeholder="Enter your password">
+                    </mat-form-field>
+                </div>
+                <div class="row mt-4">
+
+                    <!-- fullname input -->
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Fullname</mat-label>
+                        <input matInput type="text" placeholder="Enter your fullname">
+                    </mat-form-field>
+                </div>
+                <div class="row mt-4" id="actionButtons">
+                    <div class="col">
+                        <button mat-raised-button color="primary" type="submit" (click)="submit()">Submit</button>
+                    </div>
+                    <div class="col">
+                        <button mat-raised-button color="primary" type="reset">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
