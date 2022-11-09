@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { HttpClientModule } from "@angular/common/http";
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -26,20 +29,35 @@ import { ShoesPageComponent } from './shoes-page/shoes-page.component';
 import { RatingComponent } from './rating/rating.component'; 
 import {MatSliderModule} from '@angular/material/slider'; 
 
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { FormsModule } from "@angular/forms";
+import { MatButtonModule } from "@angular/material/button";
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
+
     HeaderComponent,
     ShoePageComponent,
     HomePageComponent,
     ProfilComponent,
     ShoesPageComponent,
     RatingComponent
+
+    LoginComponent,
+    RegisterComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+
     BrowserAnimationsModule,
     MatIconModule,
     MatToolbarModule,
@@ -57,6 +75,12 @@ import {MatSliderModule} from '@angular/material/slider';
     MatSnackBarModule,
     MatSliderModule
     
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
 
   ],
   providers: [],
