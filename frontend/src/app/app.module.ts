@@ -24,7 +24,8 @@ import { ProfilComponent } from './profil/profil.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ShoesPageComponent } from './shoes-page/shoes-page.component';
 import { RatingComponent } from './rating/rating.component'; 
-import {MatSliderModule} from '@angular/material/slider'; 
+import {MatSliderModule} from '@angular/material/slider';
+import { AdminShoeComponent } from './admin-shoe/admin-shoe.component'; 
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {MatSliderModule} from '@angular/material/slider';
     HomePageComponent,
     ProfilComponent,
     ShoesPageComponent,
-    RatingComponent
+    RatingComponent,
+    AdminShoeComponent
   ],
   imports: [
     BrowserModule,
