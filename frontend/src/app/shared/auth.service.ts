@@ -29,6 +29,8 @@ login(login:any,password:any):Observable<any>{
 logout():Observable<any>{
   sessionStorage.clear();
   return this.http.get(this.baseUrl+"logout",{withCredentials:true}); 
+  
+  
 }
 
 register(login:any,password:any,fullName:any):Observable<any>{
