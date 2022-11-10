@@ -13,7 +13,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class RegisterComponent implements OnInit {
   
-  constructor(public authService:AuthService,private router: Router, private _snackBar: MatSnackBar) { }
+  constructor(public authService:AuthService, private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   
