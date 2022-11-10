@@ -36,6 +36,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { FormsModule } from "@angular/forms";
 import { MatCardModule } from "@angular/material/card";
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
 
@@ -54,7 +55,8 @@ import { MatCardModule } from "@angular/material/card";
     RatingComponent,
     AdminShoeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AdminDashboardComponent
 
   ],
   imports: [
