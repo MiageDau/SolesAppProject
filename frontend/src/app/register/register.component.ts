@@ -11,10 +11,7 @@ import { Router } from '@angular/router';
   providers: [AuthService]
 })
 export class RegisterComponent implements OnInit {
-
   
-
-
   constructor(public authService:AuthService,private router: Router) { }
 
   ngOnInit(): void {
@@ -25,7 +22,10 @@ export class RegisterComponent implements OnInit {
     this.authService.register(form?.value.login,form?.value.password,form?.value.fullname).subscribe(
       (userInfo:any)=>{        
         this.authService.connectedUser = userInfo;
-        console.log(this.authService.connectedUser);
+        sessionStorage.setItem("id",userInfo.id);
+        sessionStorage.setItem("login",userInfo.login);
+        sessionStorage.setItem("fullname",userInfo.fullname);
+        // console.log(this.authService.connectedUser);
     },
     (error:any)=>{
       console.log("error",error);

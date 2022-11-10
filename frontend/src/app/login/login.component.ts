@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  login:any = "";
-  password:any = "";
+  login : any = "";
+  password : any = "";
 
   constructor(public authService: AuthService, private router: Router) { }
 
@@ -22,12 +22,14 @@ export class LoginComponent implements OnInit {
     this.authService.login(form?.value.login,form?.value.password).subscribe(
       (userInfo:any)=>{
         this.authService.connectedUser = userInfo;
-        console.log(userInfo);
+        sessionStorage.setItem("id",userInfo.id);
+        sessionStorage.setItem("login",userInfo.login);
+        sessionStorage.setItem("fullname",userInfo.fullname);
+        console.log(sessionStorage);
       },
       (error:any)=>{
         console.log("error",error)
       }
     )
   }
-
 }

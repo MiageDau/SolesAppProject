@@ -8,16 +8,28 @@
   <span class="example-spacer">
     
   </span>
-  <span *ngIf="authService.connectedUser">
-    {{authService.connectedUser}}
-  </span>
-  <button *ngIf="!authService.connectedUser" mat-raised-button color="primary" routerLink="/login" routerLinkActive="active-link">Login</button>
-  <button *ngIf="!authService.connectedUser" mat-raised-button color="accent" routerLink="/register" routerLinkActive="active-link">Registration</button>
-
-  <img *ngIf="authService.connectedUser" routerLink="/shoes" routerLinkActive="active-link" id="nav-img" src="assets/img/shoesss.png" alt="shoesLink">
-  <button *ngIf="authService.connectedUser" mat-icon-button class="example-icon" routerLink="/profil" routerLinkActive="active-link"
-    aria-label="Example icon-button with menu icon">
-    <i class="fa-regular fa-user fa-lg"></i>
-  </button>
-
+  <div class="row">
+    <div class="col">
+      <span>{{getName()}}</span>
+    </div>
+    <div class="col">
+      <button id="login" *ngIf="!isLogged()" mat-raised-button routerLink="/login" routerLinkActive="active-link">Login</button>
+    </div>
+    <div class="col">
+      <button *ngIf="!isLogged()" mat-raised-button routerLink="/register" routerLinkActive="active-link">Registration</button>
+    </div>
+    <div class="col">
+      <img *ngIf="isLogged()" routerLink="/shoes" routerLinkActive="active-link" id="nav-img" src="assets/img/shoesss.png" alt="shoesLink">
+    </div>
+    <div class="col">
+      <button *ngIf="isLogged()" mat-icon-button routerLink="/profil" routerLinkActive="active-link">
+      <i class="fa-regular fa-user fa-lg"></i>
+    </button>
+    </div>
+    <div class="col">
+      <button *ngIf="isLogged()" mat-icon-button  (click)="logout()">
+        <i class="fa fa-sign-out"></i>
+      </button>
+    </div>
+  </div>
 </mat-toolbar>

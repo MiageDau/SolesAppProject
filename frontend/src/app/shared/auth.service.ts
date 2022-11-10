@@ -27,6 +27,7 @@ login(login:any,password:any):Observable<any>{
   return this.http.post(this.baseUrl+"login", {login:login,password:password},{withCredentials: true});
 }
 logout():Observable<any>{
+  sessionStorage.clear();
   return this.http.get(this.baseUrl+"logout",{withCredentials:true}); 
 }
 
@@ -47,8 +48,6 @@ isLogged(){
     }
   )
 }
-
-
 
 }
 
