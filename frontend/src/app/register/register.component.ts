@@ -1,18 +1,18 @@
-import { NgFor } from '@angular/common';
+
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from "../auth.service";
+import { AuthService } from '../shared/auth.service';
+
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
+  providers: [AuthService]
 })
 export class RegisterComponent implements OnInit {
 
-  login:any = "";
-  password:any = "";
-  fullname:any = "";
+  
 
 
   constructor(public authService:AuthService) { }
@@ -20,9 +20,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit():any{
-
-    this.authService.register(this.login,this.password,this.fullname).subscribe(
+  submit(form?: NgForm):any{
+    this.authService.register(form?.value.login,form?.value.password,form?.value.fullname).subscribe(
       (userInfo:any)=>{
         this.authService.connectedUser = userInfo;
         console.log(userInfo);

@@ -9,6 +9,7 @@ const { Cookie } = require('express-session');
 
 const User = require('./models/users');
 const { request, response } = require('express');
+const { json } = require('body-parser');
 
 
 // Configuration et connexion avec la base de données
@@ -106,7 +107,14 @@ app.get('/isLogged', (request,response) => {
 });
 //Fin du Middleware IsLogged
 
-
+//Middleware getUser
+app.get('/users', (request,response)=>{
+    User.find((err,docs)=>{
+        if(!err) {response.send(docs);}
+        else {console.log("Erreur in retrieving User list : "+JSON.stringify(err,undefined,2))}
+    })
+})
+// Fin du Middlewar getUser
 
 
 app.listen(3000, ()=>{console.log("Listening in port 3000!")})

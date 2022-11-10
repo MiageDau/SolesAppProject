@@ -1,11 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable } from "rxjs";
+import {  } from "module";
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  
+  selectedUser: User = {
+    login : " ",
+    password : "",
+    fullname : ""
+  };
+  
   baseUrl = "http://localhost:3000/";
   connectedUser : any = null;
   constructor(private http: HttpClient) { 
