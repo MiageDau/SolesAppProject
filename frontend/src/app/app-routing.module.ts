@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import { AdminShoeComponent } from './admin-shoe/admin-shoe.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ProfilComponent } from './profil/profil.component';
 import { RatingComponent } from './rating/rating.component';
@@ -17,6 +17,7 @@ const routes: Routes = [
   {path:"profil",component:ProfilComponent},
   {path:"shoes",component:ShoesPageComponent},
   {path:"rating",component:RatingComponent},
+  {path:"admin",component:AdminShoeComponent},
   {path:"login", component:LoginComponent},
   {path:"register", component:RegisterComponent}
 ];

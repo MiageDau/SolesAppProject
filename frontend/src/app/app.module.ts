@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 
 import { HttpClientModule } from "@angular/common/http";
 
@@ -27,13 +28,15 @@ import { ProfilComponent } from './profil/profil.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ShoesPageComponent } from './shoes-page/shoes-page.component';
 import { RatingComponent } from './rating/rating.component'; 
-import {MatSliderModule} from '@angular/material/slider'; 
+import {MatSliderModule} from '@angular/material/slider';
+import { AdminShoeComponent } from './admin-shoe/admin-shoe.component'; 
 
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { FormsModule } from "@angular/forms";
+
 
 
 
@@ -48,14 +51,15 @@ import { FormsModule } from "@angular/forms";
     ProfilComponent,
     ShoesPageComponent,
     RatingComponent,
+    AdminShoeComponent,
     LoginComponent,
     RegisterComponent
 
   ],
   imports: [
+    NgxMatFileInputModule,
     BrowserModule,
     AppRoutingModule,
-
     BrowserAnimationsModule,
     MatIconModule,
     MatToolbarModule,
