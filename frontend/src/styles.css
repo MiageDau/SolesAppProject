@@ -12,6 +12,17 @@ img:focus-visible{
 .mat-form-field-appearance-fill .mat-form-field-flex{
     padding:0px !important;
 }
+.mat-raised-button:not([class*="mat-elevation-z"]){
+    box-shadow: none;
+}
+.mat-button-wrapper{
+    font-size:17px;
+  }
+.mat-dark{
+    background-color:black;
+    color:white;
+    width:100px;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 

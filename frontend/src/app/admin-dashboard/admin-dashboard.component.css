@@ -1,0 +1,17 @@
+img{
+    cursor:pointer;
+    width:400px;
+    border-radius:10px;
+    height:300px;
+}
+#align-right{
+    text-align: right;
+}
+#align-center{
+    text-align: center;
+}
+.toggle{
+    justify-content: center;
+    display:flex;
+    margin-top:80px;
+}

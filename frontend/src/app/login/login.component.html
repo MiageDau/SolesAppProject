@@ -1,6 +1,7 @@
+<hr>
 <div class="container mt-4">
     <div class="titre">
-        <h1>Espace connexion</h1>
+        <h1>Login page</h1>
         <hr>
     </div>
     <div class="container mt-3">
@@ -9,25 +10,22 @@
                 <div class="row">
                     <!-- login input -->
                     <mat-form-field appearance="legacy">
-                        <mat-label>Login</mat-label>
-                        <input matInput type="text" #login="ngModel" [(ngModel)]="authService.selectedUser.login" name="login" placeholder="Enter your login" required>
+                        <label>Login</label>
+                        <input matInput type="text" #login="ngModel" [(ngModel)]="authService.selectedUser.login" name="login" required>
                     </mat-form-field>
                 </div>
                 <div class="row mt-4">
 
                     <!-- password input -->
                     <mat-form-field appearance="legacy">
-                        <mat-label>Password</mat-label>
-                        <input matInput type="password" #password="ngModel" [(ngModel)]="authService.selectedUser.password"  name="password" placeholder="Enter your password" required>
+                        <label>Password</label>
+                        <input matInput type="password" #password="ngModel" [(ngModel)]="authService.selectedUser.password"  name="password" required>
                     </mat-form-field>
                 </div>
-                <div class="row mt-4" id="actionButtons">
-                    <div class="col">
-                        <button mat-raised-button color="primary" type="submit">Submit</button>
-                    </div>
-                    <div class="col">
-                        <button mat-raised-button color="primary" type="reset">Reset</button>
-                    </div>
+                <div class="row mt-4" class="footer-form">
+                        <button mat-raised-button color="dark" type="submit">Submit</button>
+                        <button id="btn-align"mat-raised-button color="dark" type="reset">Reset</button>
+        
                 </div>
             </form>
         </div>

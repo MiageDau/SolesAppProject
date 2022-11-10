@@ -25,3 +25,9 @@ cursor: pointer;
 #login{
   margin-right: 25px;
 }
+.row{
+  display:contents;
+}
+#underline{
+  text-decoration: underline;
+}
