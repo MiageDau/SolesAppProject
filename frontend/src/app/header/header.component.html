@@ -1,19 +1,23 @@
+<mat-toolbar>
 
-<mat-toolbar >
-      
-    <img routerLink="/home"id="logo"src="../assets/img/logotry2-removebg-preview.png"/>
-  
-    <div id="header-mid">
-    <input id="header-search"class="form-control" placeholder="Search">
-    </div>  
-  <span class="example-spacer"></span>
-  <img routerLink="/shoes" routerLinkActive="active-link"id="nav-img"src="assets/img/shoesss.png">
-  <button mat-icon-button class="example-icon" routerLink="/profil" routerLinkActive="active-link"aria-label="Example icon-button with menu icon">
+  <img routerLink="/home" id="logo" src="../assets/img/logotry2-removebg-preview.png" alt="SolesAppLogo"/>
+
+  <div id="header-mid">
+    <input id="header-search" class="form-control" placeholder="Search">
+  </div>
+  <span class="example-spacer">
+    
+  </span>
+  <span *ngIf="authService.connectedUser">
+    {{authService.connectedUser}}
+  </span>
+  <button *ngIf="!authService.connectedUser" mat-raised-button color="primary" routerLink="/login" routerLinkActive="active-link">Login</button>
+  <button *ngIf="!authService.connectedUser" mat-raised-button color="accent" routerLink="/register" routerLinkActive="active-link">Registration</button>
+
+  <img *ngIf="authService.connectedUser" routerLink="/shoes" routerLinkActive="active-link" id="nav-img" src="assets/img/shoesss.png" alt="shoesLink">
+  <button *ngIf="authService.connectedUser" mat-icon-button class="example-icon" routerLink="/profil" routerLinkActive="active-link"
+    aria-label="Example icon-button with menu icon">
     <i class="fa-regular fa-user fa-lg"></i>
   </button>
-</mat-toolbar>
 
-    
-    
-      
-    
+</mat-toolbar>

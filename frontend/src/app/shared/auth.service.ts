@@ -16,7 +16,9 @@ export class AuthService {
   };
   
   baseUrl = "http://localhost:3000/";
+  
   connectedUser : any = null;
+  
   constructor(private http: HttpClient) { 
     this.isLogged();
   }
@@ -45,6 +47,7 @@ isLogged(){
     }
   )
 }
+
 
 
 }

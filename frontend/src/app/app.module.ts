@@ -15,7 +15,6 @@ import { ShoePageComponent } from './shoe-page/shoe-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
 import {MatGridListModule} from '@angular/material/grid-list'; 
-import {MatCardModule} from '@angular/material/card'; 
 import {MatTabsModule} from '@angular/material/tabs'; 
 import { MatButtonModule } from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select'; 
@@ -36,6 +35,8 @@ import { RegisterComponent } from './register/register.component';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { FormsModule } from "@angular/forms";
+import { MatCardModule } from "@angular/material/card";
+
 
 
 
@@ -65,7 +66,6 @@ import { FormsModule } from "@angular/forms";
     MatToolbarModule,
     MatProgressSpinnerModule,
     MatGridListModule,
-    MatCardModule,
     MatListModule,
     MatButtonToggleModule,
     MatTabsModule,
@@ -81,7 +81,8 @@ import { FormsModule } from "@angular/forms";
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
 
   ],
   providers: [],

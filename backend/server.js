@@ -41,14 +41,18 @@ app.use(session({
 
 //Middleware de connexion
 app.post('/login',(request, response) =>{
-    User.findOne({login: request.body.login, password:request.body.password}, (error,user)=>{
+    User.findOne({login:request.body.login, password:request.body.password}, (error, user)=>{
         if(error) return response.status(401).json({msg: "Error"});
         if(!user) return response.status(401).json({msg: "Wrong login"});
-        request.session.userId = user._id;
-        response.status(200).json({
-            login:user.login,
-            fullname: user.fullname
-        });
+        if(user){
+            request.session.userId = user._id;
+            response.status(200).json({
+                        login:user.login,
+                        fullname: user.fullname
+            });
+            console.log(user);
+            console.log("Connexion réussis!");
+        }    
     });
 })
 //Fin du Middleware de connexion
@@ -71,6 +75,7 @@ app.post('/register',(request, response)=>{
                 if(error) return console.error(err);
                 request.session.userId = user._id;
                 response.status(200).json({
+                    _id: user._id,
                     login: user.login,
                     fullname: user.fullname
                 });
