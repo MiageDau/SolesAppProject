@@ -12,4 +12,10 @@ export class ProfilComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getFullName(){
+    return sessionStorage.getItem("fullname");
+  }
+  getLogin(){
+    return sessionStorage.getItem("login");
+  }
 }

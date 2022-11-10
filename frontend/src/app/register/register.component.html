@@ -5,12 +5,12 @@
     </div>
     <div class="container mt-3">
         <div class="registerForm">
-            <form method="post" >
+            <form #registerForm = "ngForm" (ngSubmit)="submit(registerForm)">
                 <div class="row">
                     <!-- login input -->
                     <mat-form-field appearance="legacy">
                         <mat-label>Login</mat-label>
-                        <input matInput type="text" placeholder="Enter your login" >
+                        <input matInput type="text" #login="ngModel" [(ngModel)]="authService.selectedUser.login" name="login" placeholder="Enter your login" required>
                     </mat-form-field>
                 </div>
                 <div class="row mt-4">
@@ -18,7 +18,7 @@
                     <!-- password input -->
                     <mat-form-field appearance="legacy">
                         <mat-label>Password</mat-label>
-                        <input matInput type="password" placeholder="Enter your password">
+                        <input matInput type="password" #password="ngModel" [(ngModel)]="authService.selectedUser.password"  name="password" placeholder="Enter your password" required>
                     </mat-form-field>
                 </div>
                 <div class="row mt-4">
@@ -26,12 +26,12 @@
                     <!-- fullname input -->
                     <mat-form-field appearance="legacy">
                         <mat-label>Fullname</mat-label>
-                        <input matInput type="text" placeholder="Enter your fullname">
+                        <input matInput type="text" #fullname="ngModel" [(ngModel)]="authService.selectedUser.fullname" name="fullname" placeholder="Enter your fullname" required>
                     </mat-form-field>
                 </div>
                 <div class="row mt-4" id="actionButtons">
                     <div class="col">
-                        <button mat-raised-button color="primary" type="submit" (click)="submit()">Submit</button>
+                        <button mat-raised-button color="primary" type="submit">Submit</button>
                     </div>
                     <div class="col">
                         <button mat-raised-button color="primary" type="reset">Reset</button>

@@ -1,19 +1,35 @@
+<mat-toolbar>
 
-<mat-toolbar >
-      
-    <img routerLink="/home"id="logo"src="../assets/img/logotry2-removebg-preview.png"/>
-  
-    <div id="header-mid">
-    <input id="header-search"class="form-control" placeholder="Search">
-    </div>  
-  <span class="example-spacer"></span>
-  <img routerLink="/shoes" routerLinkActive="active-link"id="nav-img"src="assets/img/shoesss.png">
-  <button mat-icon-button class="example-icon" routerLink="/profil" routerLinkActive="active-link"aria-label="Example icon-button with menu icon">
-    <i class="fa-regular fa-user fa-lg"></i>
-  </button>
+  <img routerLink="/home" id="logo" src="../assets/img/logotry2-removebg-preview.png" alt="SolesAppLogo"/>
+
+  <div id="header-mid">
+    <input id="header-search" class="form-control" placeholder="Search">
+  </div>
+  <span class="example-spacer">
+    
+  </span>
+  <div class="row">
+    <div class="col">
+      <span>{{getName()}}</span>
+    </div>
+    <div class="col">
+      <button id="login" *ngIf="!isLogged()" mat-raised-button routerLink="/login" routerLinkActive="active-link">Login</button>
+    </div>
+    <div class="col">
+      <button *ngIf="!isLogged()" mat-raised-button routerLink="/register" routerLinkActive="active-link">Registration</button>
+    </div>
+    <div class="col">
+      <img *ngIf="isLogged()" routerLink="/shoes" routerLinkActive="active-link" id="nav-img" src="assets/img/shoesss.png" alt="shoesLink">
+    </div>
+    <div class="col">
+      <button *ngIf="isLogged()" mat-icon-button routerLink="/profil" routerLinkActive="active-link">
+      <i class="fa-regular fa-user fa-lg"></i>
+    </button>
+    </div>
+    <div class="col">
+      <button *ngIf="isLogged()" mat-icon-button  (click)="logout()">
+        <i class="fa fa-sign-out"></i>
+      </button>
+    </div>
+  </div>
 </mat-toolbar>
-
-    
-    
-      
-    
