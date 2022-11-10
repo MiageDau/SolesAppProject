@@ -10,8 +10,7 @@ img{
 #align-center{
     text-align: center;
 }
-.toggle{
-    justify-content: center;
-    display:flex;
-    margin-top:80px;
+
+.container{
+    margin-top:50px;
 }

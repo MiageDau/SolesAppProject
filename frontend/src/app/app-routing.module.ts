@@ -12,6 +12,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 
 
 
+
 const routes: Routes = [
   {path:"",component:HomePageComponent},
   {path:"home",component:HomePageComponent},
