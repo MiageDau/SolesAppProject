@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
 import { Router } from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   
-  constructor(public authService:AuthService,private router: Router) { }
+  constructor(public authService:AuthService,private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   
@@ -25,10 +26,16 @@ export class RegisterComponent implements OnInit {
         sessionStorage.setItem("id",userInfo.id);
         sessionStorage.setItem("login",userInfo.login);
         sessionStorage.setItem("fullname",userInfo.fullname);
-        // console.log(this.authService.connectedUser);
+        this._snackBar.open('Registration with success, redirection to HomePage! ', 'Undo', {
+          duration: 3000
+        });  
+        this.router.navigateByUrl('/home');
     },
     (error:any)=>{
       console.log("error",error);
+      this._snackBar.open('Something gone wrong, please try again! ', 'Undo', {
+        duration: 3000
+      });  
     })
   }
 
