@@ -9,6 +9,8 @@ var bodyParser = require('body-parser');
 const User = require('./models/users');
 const { request, response } = require('express');
 
+var shoeController = require('./controllers/shoeController');
+
 
 
 // Configuration et connexion avec la base de données
@@ -116,5 +118,7 @@ app.get('/users', (request,response)=>{
 })
 // Fin du Middlewar getUser
 
-
+//Middleware get shoes
+app.use('/shoes', shoeController);
+//Fin Middleware get shoes
 app.listen(3000, ()=>{console.log("Listening in port 3000!")})
