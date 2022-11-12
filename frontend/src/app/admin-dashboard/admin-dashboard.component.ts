@@ -1,5 +1,5 @@
 import { FocusMonitor } from '@angular/cdk/a11y';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ShoeService } from "../shared/shoe.service";
 import { Shoe } from "../shared/shoe";
@@ -11,6 +11,8 @@ import { Shoe } from "../shared/shoe";
 })
 export class AdminDashboardComponent implements OnInit {
 
+  @ViewChild('picturePath',{static:false}) picturePath? : ElementRef;
+
   constructor(public shoeService: ShoeService) { }
 
   ngOnInit(): void {
@@ -18,21 +20,30 @@ export class AdminDashboardComponent implements OnInit {
     this.refreshShoeList();
   }
 
-
-  onSubmit(form?: NgForm){
-    if(form?.value._id == ""){
-      this.shoeService.postShoe(form?.value).subscribe((response:any)=>{
-        this.resetForm(form);
-        this.refreshShoeList();
-      });
-    } else {      
-      this.shoeService.putShoe(form?.value).subscribe((response:any)=>{
-        this.resetForm(form);
-        this.refreshShoeList();
-      });
-    }
-  }
+// Fonctionne mais pas de gestion des images
+  // onSubmit(form?: NgForm){
+  //   if(form?.value._id == ""){
+  //     this.shoeService.postShoe(form?.value).subscribe((response:any)=>{
+  //       this.resetForm(form);
+  //       this.refreshShoeList();
+  //     });
+  //   } else {      
+  //     this.shoeService.putShoe(form?.value).subscribe((response:any)=>{
+  //       this.resetForm(form);
+  //       this.refreshShoeList();
+  //     });
+  //   }
+  // }
   
+  onSubmit(form?: NgForm){
+    const imageBlob = this.picturePath?.nativeElement.files[0];
+    const formData = new FormData();
+    formData.append('shoeName', form?.value.shoeName);
+    formData.append('brandName', form?.value.brandName);
+    formData.append('file', imageBlob);
+  }
+
+
   resetForm(form?: NgForm){
     if(form)
       form.reset();
