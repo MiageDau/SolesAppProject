@@ -31,15 +31,15 @@ export class AdminDashboardComponent implements OnInit {
         this.refreshShoeList();
       });
     }
-  
   }
+  
   resetForm(form?: NgForm){
     if(form)
       form.reset();
     this.shoeService.selectedShoe = {
       _id: "",
       shoeName: "",
-      brandName: "",
+      brandName: ""
     }
   }
 

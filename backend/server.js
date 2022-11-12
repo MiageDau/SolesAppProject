@@ -8,13 +8,13 @@ var bodyParser = require('body-parser');
 
 const User = require('./models/users');
 const { request, response } = require('express');
+var router = express.Router();
+var ObjectId = require('mongoose').Types.ObjectId;
 
+var { Shoe } = require('./models/shoe');
 var shoeController = require('./controllers/shoeController');
 
-
-
 // Configuration et connexion avec la base de données
-
 mongoose.connect("mongodb+srv://rayan:rayan@cluster0.wue8bd9.mongodb.net/SolesAppProject?retryWrites=true&w=majority")
     .then(()=>{
         console.log('Successfully connected to DB !');
@@ -120,5 +120,6 @@ app.get('/users', (request,response)=>{
 
 //Middleware get shoes
 app.use('/shoes', shoeController);
+
 //Fin Middleware get shoes
 app.listen(3000, ()=>{console.log("Listening in port 3000!")})
