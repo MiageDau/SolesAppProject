@@ -14,3 +14,9 @@ img{
 .container{
     margin-top:50px;
 }
+.action-btn{
+    cursor: pointer;
+    color:black;
+    vertical-align: middle;
+    display: table-row-group;
+}
