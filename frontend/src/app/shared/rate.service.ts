@@ -15,4 +15,7 @@ export class RateService {
   postRate(rate: any){
     return this.http.post(this.baseUrl,rate);
   }
+  getRates(){
+    return this.http.get(this.baseUrl);
+  }
 }
