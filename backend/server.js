@@ -13,6 +13,7 @@ var ObjectId = require('mongoose').Types.ObjectId;
 
 var { Shoe } = require('./models/shoe');
 var shoeController = require('./controllers/shoeController');
+var rateController = require('./controllers/rateControllers');
 
 
 const fileUpload = require('express-fileupload');
@@ -124,6 +125,10 @@ app.get('/users', (request,response)=>{
 
 //Middleware get shoes
 app.use('/shoes', shoeController);
-
 //Fin Middleware get shoes
+
+//Middleware rate
+app.use('/rating', rateController);
+//Fin Middleware rate
+
 app.listen(3000, ()=>{console.log("Listening in port 3000!")})

@@ -17,32 +17,41 @@
             <img src="assets/img/shoe1.png">
         </div>
         <div class="col-lg-7">
-            <form action="">
+            <form #rateForm = "ngForm">
+                <div class="row">
+                    <input type="hidden" name="_id">
+                </div>
                 <div class="row">
                     <label>Amorti | Cushion</label>
-                    <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="10" aria-label="units"></mat-slider>
+                    <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="10" aria-label="units" id="amortiGrade" ></mat-slider>
                 </div>
                 <div class="row">
                     <label>Confort</label>
-                    <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="10" aria-label="units"></mat-slider>
+                    <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="10" aria-label="units" id="confortGrade" ></mat-slider>
                 </div>
                 <div class="row">
                     <label>Durabilité</label>
-                    <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="10" aria-label="units"></mat-slider>
+                    <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="10" aria-label="units" id="durabiliteGrade" ></mat-slider>
                 </div>
                 <div class="row">
                     <label>Design</label>
-                    <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="10" aria-label="units"></mat-slider>
+                    <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="10" aria-label="units" id="designGrade" ></mat-slider>
                 </div>
                 <div class="row">
                     <label>Maintien | Supports</label>
-                    <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="10" aria-label="units"></mat-slider>
-
+                    <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="10" aria-label="units" id="maintienGrade" ></mat-slider>
                 </div>
                 <div class="row">
                     <label>Traction | Grip</label>
-                    <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="10" aria-label="units"></mat-slider>
+                    <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="10" aria-label="units" id="gripGrade" ></mat-slider>
                 </div>
+                <div class="row">
+                    <input type="hidden" name="user_id" >
+                </div>
+                <div class="row">
+                    <input type="hidden" name="shoe_id" >
+                </div>
+
             </form>
         </div>
     </div>

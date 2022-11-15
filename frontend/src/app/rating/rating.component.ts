@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoeService } from "../shared/shoe.service";
+import { RatingService } from "../shared/rating.service";
+import { NgForm } from '@angular/forms';
+import { Rating } from '../shared/rating';
 
 @Component({
   selector: 'app-rating',
@@ -8,7 +11,7 @@ import { ShoeService } from "../shared/shoe.service";
 })
 export class RatingComponent implements OnInit {
 
-  constructor(public shoeService:ShoeService) { }
+  constructor(public shoeService:ShoeService, public ratingService:RatingService) { }
 
   ngOnInit(): void {
     window.addEventListener('load',()=>{
@@ -25,7 +28,7 @@ export class RatingComponent implements OnInit {
     })
   }
   onSubmit(){
-    console.log('cliquer');
+    
   }
 
 }
