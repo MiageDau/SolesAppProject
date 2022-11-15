@@ -10,7 +10,7 @@ import { Shoe } from "../shared/shoe";
   providers: [ShoeService]
 })
 export class AdminDashboardComponent implements OnInit {
-
+  image?:File;
   @ViewChild('picturePath',{static:false}) picturePath? : ElementRef;
 
   constructor(public shoeService: ShoeService) { }
@@ -20,28 +20,53 @@ export class AdminDashboardComponent implements OnInit {
     this.refreshShoeList();
   }
 
-// Fonctionne mais pas de gestion des images
-  // onSubmit(form?: NgForm){
-  //   if(form?.value._id == ""){
-  //     this.shoeService.postShoe(form?.value).subscribe((response:any)=>{
-  //       this.resetForm(form);
-  //       this.refreshShoeList();
-  //     });
-  //   } else {      
-  //     this.shoeService.putShoe(form?.value).subscribe((response:any)=>{
-  //       this.resetForm(form);
-  //       this.refreshShoeList();
-  //     });
-  //   }
-  // }
-  
-  onSubmit(form?: NgForm){
-    const imageBlob = this.picturePath?.nativeElement.files[0];
-    const formData = new FormData();
-    formData.append('shoeName', form?.value.shoeName);
-    formData.append('brandName', form?.value.brandName);
-    formData.append('file', imageBlob);
+  selectedFile(event:any){
+    if(event.target.files.length>0){
+      const file = <File>event.target.files[0];
+      console.log(file);
+      this.image = file;
+    }
   }
+
+// Fonctionne mais pas de gestion des images
+  onSubmit(form?: NgForm){
+    if(form?.value._id == ""){
+      this.shoeService.postShoe(form?.value).subscribe((response:any)=>{
+        this.resetForm(form);
+        this.refreshShoeList();
+      });
+    } else {      
+      this.shoeService.putShoe(form?.value).subscribe((response:any)=>{
+        this.resetForm(form);
+        this.refreshShoeList();
+      });
+    }
+  }
+  
+  // onSubmit(form?: NgForm){
+  //   this.shoeService.postShoe(form?.value).subscribe((response:any)=>{
+  //     console.log(form);
+  //   })
+    
+  //   // const imageBlob = this.picturePath?.nativeElement.files[0];
+  //   const formData = new FormData();
+  //   let shoe = {
+  //       _id : form?.value._id,
+  //       shoeName: form?.value.shoeName,
+  //       brandName: form?.value.brandName,
+  //       picture: this.image!
+  //   }
+  //   formData.append('_id', form?.value._id);
+  //   formData.append('shoeName', form?.value.shoeName);
+  //   formData.append('brandName', form?.value.brandName);
+  //   formData.append('picture',this.image!, this.image!.name);
+  //   console.log(formData);
+  //   // this.shoeService.postShoe(formData)
+  //   // formData.set('imagePath',image,'imagePath');
+  //   this.shoeService.postShoe(shoe).subscribe((response:any)=>{
+  //     console.log(shoe);
+  //   })
+  // }
 
 
   resetForm(form?: NgForm){
@@ -50,7 +75,8 @@ export class AdminDashboardComponent implements OnInit {
     this.shoeService.selectedShoe = {
       _id: "",
       shoeName: "",
-      brandName: ""
+      brandName: "",
+      picture: ""
     }
   }
 
