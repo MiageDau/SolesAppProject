@@ -17,13 +17,14 @@
             <img src="assets/img/shoe1.png">
         </div>
         <div class="col-lg-7">
-            <form #rateForm = "ngForm">
+            <form >
                 <div class="row">
                     <input type="hidden" name="_id">
                 </div>
                 <div class="row">
                     <label>Amorti | Cushion</label>
                     <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="10" aria-label="units" id="amortiGrade" ></mat-slider>
+                    <!-- <input type="range" name="" id="" min="0" max="10" step="1"> -->
                 </div>
                 <div class="row">
                     <label>Confort</label>
@@ -55,5 +56,5 @@
             </form>
         </div>
     </div>
-    <button id="center-btn" mat-raised-button color="dark" type="submit" (click)="onSubmit()">Submit</button>
+    <button id="center-btn" mat-raised-button color="dark" type="submit" >Submit</button>
 </div>
