@@ -12,7 +12,7 @@ export class ShoeService {
   readonly baseUrl = 'http://localhost:3000/shoes'
   constructor(private http: HttpClient) { }
 
-  postShoe(shoe: Shoe){
+  postShoe(shoe: any){
     return this.http.post(this.baseUrl,shoe);
   }
 
@@ -26,5 +26,8 @@ export class ShoeService {
 
   deleteShoe(_id:String){
     return this.http.delete(this.baseUrl+`/${_id}`);
+  }
+  getShoeInformation(_id:string){
+    return this.http.get(this.baseUrl+`/${_id}`);
   }
 }

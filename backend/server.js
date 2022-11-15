@@ -14,6 +14,11 @@ var ObjectId = require('mongoose').Types.ObjectId;
 var { Shoe } = require('./models/shoe');
 var shoeController = require('./controllers/shoeController');
 
+
+const fileUpload = require('express-fileupload');
+
+
+
 // Configuration et connexion avec la base de données
 mongoose.connect("mongodb+srv://rayan:rayan@cluster0.wue8bd9.mongodb.net/SolesAppProject?retryWrites=true&w=majority")
     .then(()=>{
@@ -34,7 +39,6 @@ app.use(session({
     secret:"mySecretKey",
     cookie:{maxAge: 24*60*60}
 }));
-
 
 
 //Middleware de connexion

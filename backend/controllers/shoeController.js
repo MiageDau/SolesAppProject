@@ -2,10 +2,30 @@ const { request, response } = require('express');
 const express = require('express');
 var router = express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
-var fileUpload = require('express-fileupload');
 
 
 var { Shoe } = require('../models/shoe');
+const multer = require('multer');
+const MIME_TYPE_MAP = {  
+    'image/png': 'png',  
+    'image/jpeg': 'jpg',  
+    'image/jpg': 'jpg'  
+  }; 
+const storage = multer.diskStorage({
+    destination: (request,file,cb)=>{
+        const isValid = MIME_TYPE_MAP[file.mimetype];
+        let error = new Error("Invalid Mime Type")
+            if(isValid){
+                error= null;
+            }
+        cb(error,"./backend/images");
+    },
+    filename: (request,file,cb)=>{
+        const name = file.originalname.toLowerCase().split(' ').join('_');
+        const ext = MIME_TYPE_MAP[file.mimetype];
+        cb(null, name+'-'+Date.now()+'.'+ext);
+    }
+});  
 
 
 //Get shoes
@@ -30,6 +50,22 @@ router.post('/', (request, response) =>{
         else{ console.log('Error in Shoe save : '+ JSON.stringify(error, undefined, 2));}
     });
 });
+
+
+// router.post('/',multer(storage).single('myFiles'), (request, response) =>{
+//     console.log(request.file);
+//     const url = request.protocol+'://'+request.get('host');
+//     var shoe = new Shoe({
+//         shoeName : request.body.shoeName,
+//         brandName : request.body.brandName,
+//         image: url+"/public/images/"+request.file.filename
+//     });
+//     shoe.save((error,doc)=>{
+//         if(!error) {
+//             response.send(doc)}
+//         else{ console.log('Error in Shoe save : '+ JSON.stringify(error, undefined, 2));}
+//     });
+// });
 
 
 // Get shoe by :id

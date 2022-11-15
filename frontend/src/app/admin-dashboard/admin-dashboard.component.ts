@@ -43,31 +43,6 @@ export class AdminDashboardComponent implements OnInit {
     }
   }
   
-  // onSubmit(form?: NgForm){
-  //   this.shoeService.postShoe(form?.value).subscribe((response:any)=>{
-  //     console.log(form);
-  //   })
-    
-  //   // const imageBlob = this.picturePath?.nativeElement.files[0];
-  //   const formData = new FormData();
-  //   let shoe = {
-  //       _id : form?.value._id,
-  //       shoeName: form?.value.shoeName,
-  //       brandName: form?.value.brandName,
-  //       picture: this.image!
-  //   }
-  //   formData.append('_id', form?.value._id);
-  //   formData.append('shoeName', form?.value.shoeName);
-  //   formData.append('brandName', form?.value.brandName);
-  //   formData.append('picture',this.image!, this.image!.name);
-  //   console.log(formData);
-  //   // this.shoeService.postShoe(formData)
-  //   // formData.set('imagePath',image,'imagePath');
-  //   this.shoeService.postShoe(shoe).subscribe((response:any)=>{
-  //     console.log(shoe);
-  //   })
-  // }
-
 
   resetForm(form?: NgForm){
     if(form)

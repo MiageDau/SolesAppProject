@@ -3,12 +3,12 @@
     <div class="row" style="text-align: center;">
         <div class="col">
             <h2>
-                ShoeName
+                {{shoeService.selectedShoe.brandName}}
             </h2>
         </div>
         <div class="col">
             <h2>
-                BrandName
+                {{shoeService.selectedShoe.shoeName}}
             </h2>
         </div>
     </div>
@@ -17,22 +17,34 @@
             <img src="assets/img/shoe1.png">
         </div>
         <div class="col-lg-7">
-            <label>Cushion</label>
-            <mat-slider thumbLabel tickInterval="1" step="1"min="0"max="10"aria-label="units"></mat-slider>
+            <form action="">
+                <div class="row">
+                    <label>Amorti | Cushion</label>
+                    <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="10" aria-label="units"></mat-slider>
+                </div>
+                <div class="row">
+                    <label>Confort</label>
+                    <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="10" aria-label="units"></mat-slider>
+                </div>
+                <div class="row">
+                    <label>Durabilité</label>
+                    <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="10" aria-label="units"></mat-slider>
+                </div>
+                <div class="row">
+                    <label>Design</label>
+                    <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="10" aria-label="units"></mat-slider>
+                </div>
+                <div class="row">
+                    <label>Maintien | Supports</label>
+                    <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="10" aria-label="units"></mat-slider>
 
-            <label>Confort</label>
-            <mat-slider thumbLabel tickInterval="1" step="1"min="0"max="10"aria-label="units"></mat-slider>
-
-            <label>Design</label>
-            <mat-slider thumbLabel tickInterval="1" step="1"min="0"max="10"aria-label="units"></mat-slider>
-
-            <label>Supports</label>
-            <mat-slider thumbLabel tickInterval="1" step="1"min="0"max="10"aria-label="units"></mat-slider>
-
-            <label>Grip</label>
-            <mat-slider thumbLabel tickInterval="1" step="1"min="0"max="10"aria-label="units"></mat-slider>
-
+                </div>
+                <div class="row">
+                    <label>Traction | Grip</label>
+                    <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="10" aria-label="units"></mat-slider>
+                </div>
+            </form>
         </div>
     </div>
-    <button id="center-btn"mat-raised-button color="dark">Submit</button>
+    <button id="center-btn" mat-raised-button color="dark" type="submit" (click)="onSubmit()">Submit</button>
 </div>

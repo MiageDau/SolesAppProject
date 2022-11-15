@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShoeService } from "../shared/shoe.service";
 
 @Component({
   selector: 'app-rating',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RatingComponent implements OnInit {
 
-  constructor() { }
+  constructor(public shoeService:ShoeService) { }
 
   ngOnInit(): void {
+    window.addEventListener('load',()=>{
+      this.getShoeInformation();
+    });
+    
+  }
+  getShoeInformation(){
+    let url = window.location.href;
+    let _id = url.substr(29)
+    this.shoeService.getShoeInformation(_id).subscribe((response:any)=>{
+      this.shoeService.selectedShoe = response; 
+      console.log(response);   
+    })
+  }
+  onSubmit(){
+    console.log('cliquer');
   }
 
 }

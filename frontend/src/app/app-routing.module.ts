@@ -16,10 +16,10 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 const routes: Routes = [
   {path:"",component:HomePageComponent},
   {path:"home",component:HomePageComponent},
-  {path:"shoe",component:ShoePageComponent},
+  {path:"shoe/:id",component:ShoePageComponent},
   {path:"profil",component:ProfilComponent},
   {path:"shoes",component:ShoesPageComponent},
-  {path:"rating",component:RatingComponent},
+  {path:"rating/:id",component:RatingComponent},
   {path:"admin",component:AdminShoeComponent},
   {path:"login", component:LoginComponent},
   {path:"register", component:RegisterComponent},
