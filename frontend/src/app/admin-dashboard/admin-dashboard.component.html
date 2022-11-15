@@ -1,20 +1,83 @@
-<html><hr>
-<div class="container">
-<div class="row">
-    <div class="col-lg-6">
-        <h2>Add a shoe</h2>
-        <img routerLink="/admin" routerLinkActive="active-link"src="assets/img/Air-Jordan-1-Chicago-Reimagined-Photos-4.jpeg">
+<div class="container mt-4">
+    <div class="container mt-4">
+        <div class="row">
+            <h1> Add Shoe</h1>
+            <hr>
+            <div class="container">
+                <form #shoeForm="ngForm" (ngSubmit)="onSubmit(shoeForm)" enctype="multipart/form-data">
+                    <div class="row">
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="shoeService.selectedShoe._id">
+                    </div>
+                    <div class="row">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Shoe name</mat-label>
+                            <input matInput type="text" name="shoeName" #shoeName = "ngModel" [(ngModel)]="shoeService.selectedShoe.shoeName">
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field appearance="fill">
+                            <mat-label> Brand </mat-label>
+                            <input matInput type="text" name="brandName" #brandName = "ngModel" [(ngModel)]="shoeService.selectedShoe.brandName" >
+                        </mat-form-field>
+                    </div>
+                    <div class="row mt-3">
+                        <mat-label> Choose an image... </mat-label>    
+                        <input class="mt-3" type="file" id="myFiles" name="myFiles" (change)="selectedFile($event)"  #picture = "ngModel" [(ngModel)]="shoeService.selectedShoe.picture" />
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <button mat-raised-button color="dark"  type="submit" [disabled]="!shoeForm.valid">Create</button>
+                        </div>
+                        <div class="col">
+                            <button mat-raised-button color="dark" type="reset" (click)="resetForm(shoeForm)">Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <div id="align-right"class="col-lg-6">
-        <h2 id="align-center">View / Edit shoes</h2>
-        <img id="img-id"routerLink="" routerLinkActive="active-link" src="assets/img/sneakers de lannee.webp">
-    </div>
+    <br><br>
+    <br><hr><br>
+    <br><br>
+    <div class="container mt-4">
+        <div class="row">
+            <h1> Manage Shoe</h1>
+            <hr>
+            <div class="container">
+                <table class="table">
+                    <thead>
+                        <th>Shoe name</th>
+                        <th> Brand name</th>
+                        <th> Picture </th>
+                        
+                        <th></th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tr *ngFor="let shoe of shoeService.shoes">
+                        <td> 
+                            {{ shoe.shoeName }}
+                        </td>
+                        <td>
+                            {{ shoe.brandName }}
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a class="action-btn" (click)="onEdit(shoe)">
+                                <i class="material-icons">edit</i>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="action-btn" (click)="onDelete(shoe._id, shoeForm)">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </td>
     
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
 </div>
-
-
-
-
-
-</div>
-</html>

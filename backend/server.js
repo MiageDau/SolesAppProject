@@ -8,11 +8,19 @@ var bodyParser = require('body-parser');
 
 const User = require('./models/users');
 const { request, response } = require('express');
+var router = express.Router();
+var ObjectId = require('mongoose').Types.ObjectId;
+
+var { Shoe } = require('./models/shoe');
+var shoeController = require('./controllers/shoeController');
+var rateController = require('./controllers/rateControllers');
+
+
+const fileUpload = require('express-fileupload');
 
 
 
 // Configuration et connexion avec la base de données
-
 mongoose.connect("mongodb+srv://rayan:rayan@cluster0.wue8bd9.mongodb.net/SolesAppProject?retryWrites=true&w=majority")
     .then(()=>{
         console.log('Successfully connected to DB !');
@@ -32,7 +40,6 @@ app.use(session({
     secret:"mySecretKey",
     cookie:{maxAge: 24*60*60}
 }));
-
 
 
 //Middleware de connexion
@@ -116,5 +123,12 @@ app.get('/users', (request,response)=>{
 })
 // Fin du Middlewar getUser
 
+//Middleware get shoes
+app.use('/shoes', shoeController);
+//Fin Middleware get shoes
+
+//Middleware rate
+app.use('/rating', rateController);
+//Fin Middleware rate
 
 app.listen(3000, ()=>{console.log("Listening in port 3000!")})
