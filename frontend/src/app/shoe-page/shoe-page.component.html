@@ -4,8 +4,8 @@
     <div class="row">
         <div class="col">
             <div class="shoeInformation">
-                <h1> {{shoeService.selectedShoe.brandName}} </h1>
-                <h3> {{shoeService.selectedShoe.shoeName}} </h3>
+                <h1> {{this.brandName}} </h1>
+                <h3> {{this.shoeName}} </h3>
             </div>
         </div>
     </div>
@@ -21,14 +21,17 @@
                 <div class="shoeOverallGrade mb-3">
                     <mat-card class="shoePictures">
                         <mat-card-content>
-                            <div class="col offset-5">
-                                <mat-spinner></mat-spinner>
-                            </div>
+                                <div class="titre">
+                                    <h1>Global rate</h1>
+                                </div>
+                                <span class="badge rounded-pill text-bg-{{this.badgeColor}}" id="rateBadge">
+                                    {{this.totalGrade}}
+                                </span>
                         </mat-card-content>
                     </mat-card>
                 </div>
             </div>
-            <div class="shoeDetailsGrade mt-5">
+            <div class="shoeDetailsGrade ">
                 <div class="cushionGrade mt-3">
                     <mat-card>
                         <mat-card-content>
@@ -40,12 +43,12 @@
                                 </div>
                                 <div class="col">
                                     <div class="GradeProgressBar">
-                                        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                                        <mat-progress-bar mode="determinate" value="{{this.amortiGradeAverageSlider}}"></mat-progress-bar>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <span class="align-middle">
-                                        4.0
+                                    <span class="align-middle" id="cushion">
+                                        {{this.amortiGradeAverage}}
                                     </span>
                                 </div>
                             </div>
@@ -64,12 +67,35 @@
                                 </div>
                                 <div class="col">
                                     <div class="GradeProgressBar">
-                                        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                                        <mat-progress-bar mode="determinate" value="{{this.confortGradeAverageSlider}}"></mat-progress-bar>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <span class="align-middle">
-                                        4.0
+                                        {{this.confortGradeAverage}}
+                                    </span>
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+                <div class="durabiliteGrade mt-3">
+                    <mat-card>
+                        <mat-card-content>
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <span class="align-middle">
+                                        Sustainability
+                                    </span>
+                                </div>
+                                <div class="col">
+                                    <div class="GradeProgressBar">
+                                        <mat-progress-bar mode="determinate" value="{{this.durabiliteGradeAverageSlider}}"></mat-progress-bar>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <span class="align-middle">
+                                        {{this.durabiliteGradeAverage}}
                                     </span>
                                 </div>
                             </div>
@@ -87,12 +113,12 @@
                                 </div>
                                 <div class="col">
                                     <div class="GradeProgressBar">
-                                        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                                        <mat-progress-bar mode="determinate" value="{{this.designGradeAverageSlider}}"></mat-progress-bar>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <span class="align-middle">
-                                        4.0
+                                        {{this.designGradeAverage}}
                                     </span>
                                 </div>
                             </div>
@@ -110,12 +136,12 @@
                                 </div>
                                 <div class="col">
                                     <div class="GradeProgressBar">
-                                        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                                        <mat-progress-bar mode="determinate" value="{{this.maintienGradeAverageSlider}}"></mat-progress-bar>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <span class="align-middle">
-                                        4.0
+                                        {{this.maintienGradeAverage}}
                                     </span>
                                 </div>
                             </div>
@@ -133,12 +159,12 @@
                                 </div>
                                 <div class="col">
                                     <div class="GradeProgressBar">
-                                        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                                        <mat-progress-bar mode="determinate" value="{{this.gripGradeAverageSlider}}"></mat-progress-bar>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <span class="align-middle">
-                                        4.0
+                                        {{this.gripGradeAverage}}
                                     </span>
                                 </div>
                             </div>
