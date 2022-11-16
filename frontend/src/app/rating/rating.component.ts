@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { ShoeService } from "../shared/shoe.service";
 import { RateService } from "../shared/rate.service";
 import { AuthService } from "../shared/auth.service";
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rating',
@@ -12,7 +14,7 @@ import { AuthService } from "../shared/auth.service";
 })
 export class RatingComponent implements OnInit {
 
-  constructor(public shoeService:ShoeService, public rateService:RateService, public authService:AuthService) { }
+  constructor(public shoeService:ShoeService, private router: Router,public rateService:RateService, public authService:AuthService, public _snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
     this.getShoeInformation();
@@ -50,9 +52,17 @@ export class RatingComponent implements OnInit {
     };
 
     this.rateService.postRate(rateObject).subscribe((response:any)=>{
+      this._snackBar.open(' Rating with success, Thank you! ', 'Undo', {
+        duration: 3000
+      });  
       console.log(response);
+      this.router.navigateByUrl('/shoes');
     })
-    
+
+  }
+
+  reset(form?: NgForm){
+    window.location.reload();
   }
   
 
