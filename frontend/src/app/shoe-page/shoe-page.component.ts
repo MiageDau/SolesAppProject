@@ -367,10 +367,9 @@ export class ShoePageComponent implements OnInit {
           this.badgeColor = "warning";  
         }if(this.totalGrade > "5" && this.totalGrade < "7" ){
           this.badgeColor = "primary";
+        } if(this.totalGrade>"7"){
+          this.badgeColor = "success";
         }
-          else{
-            this.badgeColor = "success";
-          }
       })
     }
 
