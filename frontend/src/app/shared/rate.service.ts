@@ -19,10 +19,14 @@ export class RateService {
     return this.http.get(this.baseUrl);
   }
 
-  getUserRates(user_id:any){
-    console.log("send here "+user_id);
-    return this.http.get(this.baseUrl+"/userRate",user_id)
-  }
+  // getUserRates(user_id:any){
+  //   console.log("send here "+user_id);
+  //   return this.http.get(this.baseUrl+"/userRate",user_id)
+  // }
 
+  getUserRates(){
+    
+    return this.http.get("http://localhost:3000/islogged");
+  }
 
 }

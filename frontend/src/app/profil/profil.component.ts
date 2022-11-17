@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RateService } from "../shared/rate.service";
-import {Rate} from "../shared/rate"
-import { coerceStringArray } from '@angular/cdk/coercion';
+import { Rate } from "../shared/rate"
+import { AuthService } from "../shared/auth.service";
 
 @Component({
   selector: 'app-profil',
@@ -13,45 +13,43 @@ export class ProfilComponent implements OnInit {
   ratesOfUser!: Rate[];
   user_idConnected = sessionStorage.getItem("id");
 
-  constructor(public rateService:RateService ) { }
+  constructor(public rateService: RateService, public authService:AuthService) { }
 
   ngOnInit(): void {
-    
+
     // this.getAllRates();
-    this.getAllUserRates();
   }
 
-  getUserId(){
+  getUserId() {
     return sessionStorage.getItem("id");
   }
-  getFullName(){
-    return sessionStorage.getItem("fullname");
+  getFullName() {
+    return this.authService.connectedUser.fullname;
+    // return sessionStorage.getItem("fullname");
   }
-  getLogin(){
-    return sessionStorage.getItem("login");
+  getLogin() {
+    return this.authService.connectedUser.login;
+    // return sessionStorage.getItem("login");
   }
-  getAllRates(){
+  getAllRates() {
     this.rateService.getRates().subscribe((response: any) => {
       console.log(response);
       this.rates = response as Rate[];
-      
+
       this.rates.forEach(rate => {
-        if(rate.user_id == sessionStorage.getItem("id")){
+        if (rate.user_id == sessionStorage.getItem("id")) {
           this.rateService.rates = rate as Rate[];
           console.log(this.rateService.rates);
         }
       });
-      
-    });  
+
+    });
   }
 
-  getAllUserRates(){
-    let formData = new FormData();
-    formData.append('user_id',this.user_idConnected!);
-    this.rateService.getUserRates(formData).subscribe((response:any)=>{
+  getAllUserRates() {
+    this.rateService.getUserRates().subscribe((response: any) => {
       console.log(response);
     })
-
   }
 
 
