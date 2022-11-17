@@ -4,6 +4,8 @@ var router = express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
 
 var { Rate } = require('../models/rate');
+const session = require('express-session');
+
 
 // //Get Rates
 // //http://localhost:3000/rating
@@ -16,7 +18,8 @@ router.get('/', (request, response) => {
 
 //Get Rates of an user by user_id
 router.get('/userRate', (request, response) => {
-    console.log(request.body)
+    console.log("response from server :");
+    console.log(request.body.userId);
     // console.log("User_id venant du site " + request.body.user_id);
     // let query = {"user_id":request.body.user_id};
     // Rate.find(query,(error,docs)=>{

@@ -39,7 +39,8 @@ app.use(bodyParser.json());
 //
 app.use(session({
     secret:"mySecretKey",
-    cookie:{maxAge: 24*60*60}
+    cookie:{maxAge: 24*60*60},
+    user:{user_id}
 }));
 
 
