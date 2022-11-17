@@ -15,8 +15,9 @@ var { Shoe } = require('./models/shoe');
 var shoeController = require('./controllers/shoeController');
 var rateController = require('./controllers/rateControllers');
 
-
+var user_id = "";
 const fileUpload = require('express-fileupload');
+const { use } = require('./controllers/shoeController');
 
 
 
@@ -38,7 +39,8 @@ app.use(bodyParser.json());
 //
 app.use(session({
     secret:"mySecretKey",
-    cookie:{maxAge: 24*60*60}
+    cookie:{maxAge: 24*60*60},
+    user:{user_id}
 }));
 
 
@@ -49,6 +51,7 @@ app.post('/login',(request, response) =>{
         if(!user) return response.status(401).json({msg: "Wrong login"});
         if(user){
             request.session.userId = user._id;
+            user_id = user._id;
             console.log(request.session);
             response.status(200).json({
                         id: user._id,
@@ -56,6 +59,8 @@ app.post('/login',(request, response) =>{
                         fullname: user.fullname
             });
             console.log("Connexion réussis!");
+            console.log("userId connected : "+ user_id);
+             
         }    
     });
 })
@@ -91,28 +96,35 @@ app.post('/register',(request, response)=>{
 
 //Middleware de Logout
 app.get('/logout', (request, response) => {
+    console.log(request.session)
     request.session.destroy(error => {
-        if(error) return response.status(409).json({msg:"Error"});
-        response.status(200).json({msg: "Logout OK"});
+        console.log("destroying session....")
+        if(error) return response.status(409).json("Error");
+        response.status(200).json("Logout OK");
     })
 });
 //Fin du Middleware de Logout
 
 //Middleware IsLogged
-
 app.get('/islogged', (request,response) => {
     if(!request.session.userId) return response.status(401).json();
+
+
     User.findOne( {_id: request.session.userId}, (error,user) => {
         if(error) return response.status(401).json({msg:"Error"});
         if(!user) return response.status(401).json({msg:"Error"});
         request.session.userId = user._id;
         response.status(200).json({
+            id: user._id,
             login: user.login,
             fullname: user.fullname
         });
+        console.log(request.session.userId);
     });
 });
 //Fin du Middleware IsLogged
+
+
 
 //Middleware getUser
 app.get('/users', (request,response)=>{
@@ -122,6 +134,7 @@ app.get('/users', (request,response)=>{
     })
 })
 // Fin du Middlewar getUser
+
 
 //Middleware get shoes
 app.use('/shoes', shoeController);

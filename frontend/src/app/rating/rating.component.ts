@@ -13,20 +13,27 @@ import { Router } from '@angular/router';
   providers: [RateService]
 })
 export class RatingComponent implements OnInit {
+  shoeId! : String;
+  shoeName! : String
+  brandName! : String
 
   constructor(public shoeService:ShoeService, private router: Router,public rateService:RateService, public authService:AuthService, public _snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
     this.getShoeInformation();
+    
   }
 
-  
   getShoeInformation(){
     let url = window.location.href;
     let _id = url.substr(29)
     this.shoeService.getShoeInformation(_id).subscribe((response:any)=>{
       this.shoeService.selectedShoe = response; 
-      console.log(response);   
+      this.shoeId = response._id;
+      this.shoeName = response.shoeName;
+      this.brandName = response.brandName;
+
+      // console.log(response.shoeName);   
     })
   }
 
@@ -43,6 +50,7 @@ export class RatingComponent implements OnInit {
     let rateObject = {
       shoe_id : shoe_id,
       user_id : user_id,
+      shoe_name: this.shoeName,
       amortiGrade: amortiGrade,
       confortGrade: confortGrade,
       durabiliteGrade: durabiliteGrade,
@@ -61,9 +69,21 @@ export class RatingComponent implements OnInit {
 
   }
 
+
+
   reset(form?: NgForm){
     window.location.reload();
   }
+
+
+  onDelete(_id:String, form: NgForm){
+    if(confirm('Are you sure to delete this shoe ?') == true){
+      this.rateService.deleteRate(_id).subscribe((response:any)=>{
+        this.reset(form);
+      });
+    }
+  }
+  
   
 
 

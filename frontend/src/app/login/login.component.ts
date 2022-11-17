@@ -30,7 +30,9 @@ export class LoginComponent implements OnInit {
         this._snackBar.open('Login with success, redirection to HomePage! ', 'Undo', {
           duration: 3000
         });  
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/home').then(()=>{
+          window.location.reload();
+        });
       },
       (error:any)=>{
         console.log("error",error)

@@ -50,6 +50,9 @@ export class ShoePageComponent implements OnInit {
     this.getTotalGradeOfShoe();
   }
 
+
+
+
   getShoeInformation() {
     let url = window.location.href;
     let _id = url.substr(27)

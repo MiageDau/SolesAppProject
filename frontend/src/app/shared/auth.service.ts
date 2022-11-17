@@ -39,11 +39,11 @@ register(login:any,password:any,fullName:any):Observable<any>{
 }
 
 isLogged(){
-  this.http.get(this.baseUrl,{withCredentials: true}).subscribe(
+  this.http.get(this.baseUrl+"islogged",{withCredentials: true}).subscribe(
     (connectedUser:any) =>{
+
       this.connectedUser = connectedUser;
-      console.log(this.connectedUser);
-      console.log("is connected");
+      console.log("User_id connected : "+this.connectedUser.id);  
     },
     (error:any)=>{
       console.log("Not connected");

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../shared/auth.service";
 import { Router } from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -13,10 +14,11 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 export class HeaderComponent implements OnInit {
 
   
-  constructor(public authService:AuthService, private router: Router, private _snackBar: MatSnackBar) { }
+  constructor(public authService:AuthService, private router: Router, private _snackBar: MatSnackBar, public http:HttpClient) { }
 
   ngOnInit(): void {
-    this.isLogged()
+    // this.isLogged();
+    // this.isLoggedServerSide();
   }
   
   logout(){
@@ -28,7 +30,9 @@ export class HeaderComponent implements OnInit {
     this._snackBar.open('See you soon, redirection to HomePage! ', 'Undo', {
       duration: 3000
     });  
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/home').then(()=>{
+      window.location.reload();
+    });
   }
   getName(){
     return sessionStorage.getItem("fullname");
@@ -36,13 +40,16 @@ export class HeaderComponent implements OnInit {
   isLogged():Boolean{
     let res = false;
     if(sessionStorage.getItem("id")){
-      console.log("Connecté")
+      // console.log("Connecté")
       res = true
     }else{
-      console.log('non connecté');
+      // console.log('non connecté');
     }
     return res;
   }
   
+  isLoggedServerSide(){
+    return this.http.get("http://localhost/islogged");
+  }
 
 }

@@ -30,4 +30,5 @@ export class ShoeService {
   getShoeInformation(_id:string){
     return this.http.get(this.baseUrl+`/${_id}`);
   }
+  
 }

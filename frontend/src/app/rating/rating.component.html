@@ -3,12 +3,8 @@
     <div class="row" style="text-align: center;">
         <div class="col">
             <h2>
-                {{shoeService.selectedShoe.brandName}}
-            </h2>
-        </div>
-        <div class="col">
-            <h2>
-                {{shoeService.selectedShoe.shoeName}}
+                {{shoeName}} - {{brandName}}
+                <!-- {{shoeService.selectedShoe.brandName}} - {{shoeService.selectedShoe.shoeName}} -->
             </h2>
         </div>
     </div>
@@ -22,7 +18,7 @@
                     <input type="hidden" name="_id">
                 </div>
                 <div class="row">
-                    <input type="hidden" name="shoe_id" id="shoe_id" value="{{shoeService.selectedShoe._id}}">
+                    <input type="hidden" name="shoe_id" id="shoe_id" value="{{shoeId}}">
                 </div>
                 <div class="row">
                     <input type="hidden" name="user_id" id="user_id">
