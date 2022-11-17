@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RateService } from "../shared/rate.service";
 import { Rate } from "../shared/rate"
 import { AuthService } from "../shared/auth.service";
+import { ShoeService } from "../shared/shoe.service";
 import { Observable } from "rxjs";
 
 @Component({
@@ -15,7 +16,7 @@ export class ProfilComponent implements OnInit {
   Rates$!: Observable<Rate[]>
   user_idConnected = sessionStorage.getItem("id");
 
-  constructor(public rateService: RateService, public authService:AuthService) { }
+  constructor(public rateService: RateService, public authService:AuthService, public shoeService:ShoeService) { }
 
   ngOnInit(): void {
 
@@ -46,22 +47,14 @@ export class ProfilComponent implements OnInit {
       });
     });
     this.ratesOfUser = ratesOfUser;
-    // this.Rates$ = this.rateService.getRates();
+    console.log(this.ratesOfUser);
+  }
 
-    
-    // this.rateService.getRates().subscribe((response: any) => {
-    //   console.log(response);
-    //   this.rates = response as Rate[];
-
-    //   this.rates.forEach(rate => {
-    //     if (rate.user_id == sessionStorage.getItem("id")) {
-    //       this.rateService.rates = rate as Rate[];
-    //       console.log(this.rateService.rates);
-    //     }
-    //   });
-
-    // });
-    
+  getShoeNameFromId(shoe_id:any){
+    this.shoeService.getShoeInformation(shoe_id).subscribe((response:any)=>{
+      response.shoeName;
+    });
   }
 
 }
+

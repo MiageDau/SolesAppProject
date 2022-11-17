@@ -69,3 +69,9 @@ h2{
 .example-card2{
     margin-top:10px;
 }
+
+table{
+    text-align: center;
+    display: inline;
+    justify-content: center;
+}

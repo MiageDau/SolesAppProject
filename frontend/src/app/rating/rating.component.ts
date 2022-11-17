@@ -50,6 +50,7 @@ export class RatingComponent implements OnInit {
     let rateObject = {
       shoe_id : shoe_id,
       user_id : user_id,
+      shoe_name: this.shoeName,
       amortiGrade: amortiGrade,
       confortGrade: confortGrade,
       durabiliteGrade: durabiliteGrade,
@@ -67,6 +68,8 @@ export class RatingComponent implements OnInit {
     })
 
   }
+
+
 
   reset(form?: NgForm){
     window.location.reload();

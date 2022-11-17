@@ -36,6 +36,7 @@ router.post('/', (request,response)=>{
     var rate = new Rate({
         shoe_id : request.body.shoe_id,
         user_id : request.body.user_id,
+        shoe_name: request.body.shoe_name,
         amortiGrade : request.body.amortiGrade,
         confortGrade : request.body.confortGrade,
         durabiliteGrade : request.body.durabiliteGrade,
