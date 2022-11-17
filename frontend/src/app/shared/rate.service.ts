@@ -18,4 +18,11 @@ export class RateService {
   getRates(){
     return this.http.get(this.baseUrl);
   }
+
+  getUserRates(user_id:any){
+    console.log("send here "+user_id);
+    return this.http.get(this.baseUrl+"/userRate",user_id)
+  }
+
+
 }

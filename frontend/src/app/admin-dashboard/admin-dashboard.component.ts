@@ -66,7 +66,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   onDelete(_id:String, form: NgForm){
-    if(confirm('Are you sure to delete this sho ?') == true){
+    if(confirm('Are you sure to delete this shoe ?') == true){
       this.shoeService.deleteShoe(_id).subscribe((response:any)=>{
         this.refreshShoeList();
         this.resetForm(form);
