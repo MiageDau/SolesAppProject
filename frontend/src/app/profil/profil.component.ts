@@ -47,6 +47,7 @@ export class ProfilComponent implements OnInit {
       });
     });
     this.ratesOfUser = ratesOfUser;
+    
     console.log(this.ratesOfUser);
   }
 
@@ -54,6 +55,14 @@ export class ProfilComponent implements OnInit {
     this.shoeService.getShoeInformation(shoe_id).subscribe((response:any)=>{
       response.shoeName;
     });
+  }
+
+  onDelete(rate_id:any){
+    if(confirm('Are you sure to delete this shoe ?') == true){
+      this.rateService.deleteRate(rate_id).subscribe(()=>{
+        window.location.reload();
+      });
+    }
   }
 
 }

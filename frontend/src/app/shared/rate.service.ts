@@ -21,4 +21,12 @@ export class RateService {
     return this.http.get<Rate[]>(this.baseUrl);
   }
 
+  putRate(rate:Rate){
+    return this.http.put(this.baseUrl+ `/${rate._id}`, rate);
+  }
+
+  deleteRate(_id:String){
+    return this.http.delete(this.baseUrl+`/${_id}`);
+  }
+
 }

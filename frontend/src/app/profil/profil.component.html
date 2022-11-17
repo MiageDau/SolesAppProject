@@ -47,8 +47,8 @@
             <mat-card-title>
                 <h2>Manage your rates : </h2>
             </mat-card-title>
-                <div class="formUpdateRate pb-4">
-                    <form >
+                <div class="formUpdateRate  pb-4">
+                    <form #updateForm="ngForm">
                         <div class="row">
                             <div class="col">
                                 <input type="text" name="amortiGrade" id="amortiGrade" placeholder="Amorti Grade">
@@ -128,6 +128,7 @@
                 </th>
             </thead>
             <tr *ngFor="let rate of this.ratesOfUser">
+                
                 <td>{{rate.shoe_name}}</td>
                 <td>{{rate.amortiGrade}} / 10</td>
                 <td>{{rate.confortGrade}} / 10</td>
@@ -141,7 +142,7 @@
                     </a>
                 </td>
                 <td>
-                    <a class="action-btn" >
+                    <a class="action-btn" (click)="onDelete(rate._id)">
                         <i class="material-icons">delete</i>
                     </a>
                 </td>

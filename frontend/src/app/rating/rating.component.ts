@@ -75,6 +75,14 @@ export class RatingComponent implements OnInit {
     window.location.reload();
   }
 
+
+  onDelete(_id:String, form: NgForm){
+    if(confirm('Are you sure to delete this shoe ?') == true){
+      this.rateService.deleteRate(_id).subscribe((response:any)=>{
+        this.reset(form);
+      });
+    }
+  }
   
   
 
