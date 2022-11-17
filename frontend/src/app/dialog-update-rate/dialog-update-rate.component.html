@@ -1,0 +1,37 @@
+<div class="container">
+    <h2 mat-dialog-title>
+        Update rate of : {{data.shoe_name}}
+    </h2>
+    <mat-dialog-content>
+        <div class="formUpdateRate  pb-4">
+            <form #updateForm="ngForm" (ngSubmit)="update(updateForm)">
+                <div class="row mt-4">
+                    <input type="text" ngModel name="amortiGrade" id="amortiGrade" placeholder="Amorti Grade" #amortiGrade>
+                </div>
+                <div class="row mt-4">
+                    <input type="text" ngModel name="confortGrade" id="confortGrade" placeholder="Confort Grade" #confortGrade>
+                </div>
+                <div class="row mt-4">
+                    <input type="text" ngModel name="designGrade" id="designGrade" placeholder="Desgin Grade" #designGrade>
+                </div>
+                <div class="row mt-4">
+                    <input type="text" ngModel name="durabiliteGrade" id="durabiliteGrade" placeholder="Durabilite Grade"
+                    #durabiliteGrade>
+                </div>
+                <div class="row mt-4">
+                    <input type="text" ngModel name="gripGrade" id="gripGrade" placeholder="Grip Grade" #gripGrade>
+                </div>
+                <div class="row mt-4">
+                    <input type="text" ngModel name="maintienGrade" id="maintienGrade" placeholder="Maintien Grade" #maintienGrade>
+                </div>
+                <div class="row mt-4">
+                    <div class="col"></div>
+                    <div class="col">
+                        <button mat-raised-button color="dark" type="submit">Update</button>
+                    </div>
+                    <div class="col"></div>
+                </div>
+            </form>
+        </div>
+    </mat-dialog-content>
+</div>
