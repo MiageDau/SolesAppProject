@@ -16,7 +16,7 @@ import { DialogUpdateRateComponent } from '../dialog-update-rate/dialog-update-r
 export class ProfilComponent implements OnInit {
   rates!: Rate[];
   ratesOfUser!: Rate[];
-
+  
   user_idConnected = sessionStorage.getItem("id");
 
   constructor(public rateService: RateService, public authService: AuthService, public shoeService: ShoeService, public dialog:MatDialog) { }

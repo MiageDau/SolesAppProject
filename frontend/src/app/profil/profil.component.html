@@ -43,12 +43,14 @@
     <br>
     <hr><br>
     <div class="Rates pb-4">
+        
         <mat-card>
             <mat-card-title>
                 <h2>Manage your rates : </h2>
             </mat-card-title>
             <hr>
         </mat-card>
+        <div class="container-flluid" class="tableContainer">
         <table class="table">
             <thead>
                 <th>
@@ -82,6 +84,8 @@
                         Maintien Grade
                     </h2>
                 </th>
+                <th></th>
+                <th></th>
                 <th>
                     <h2>
                         Update
@@ -101,10 +105,11 @@
                 <td>{{rate.durabiliteGrade}} / 10</td>
                 <td>{{rate.gripGrade}} / 10</td>
                 <td>{{rate.maintienGrade}} / 10</td>
+                <td></td>
+                <td></td>
                 <td>
-                    <!-- <a class="action-btn" (click)="onEdit(rate)"> -->
                     <a class="action-btn" (click)="openDialog(rate)">
-                        <i class="material-icons">edit</i>
+                        <i class="material-icons" >edit</i>
                     </a>
                 </td>
                 <td>
@@ -114,8 +119,6 @@
                 </td>
             </tr>
         </table>
-        <!-- </mat-card> -->
-
-
+    </div>
     </div>
 </div>
