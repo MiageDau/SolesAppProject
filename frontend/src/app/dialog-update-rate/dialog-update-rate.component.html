@@ -6,23 +6,23 @@
         <div class="formUpdateRate  pb-4">
             <form #updateForm="ngForm" (ngSubmit)="update(updateForm)">
                 <div class="row mt-4">
-                    <input type="text" ngModel name="amortiGrade" id="amortiGrade" placeholder="Amorti Grade" #amortiGrade>
+                    <input type="number" min="0" max="10" ngModel name="amortiGrade" id="amortiGrade" placeholder="Amorti Grade" #amortiGrade required>
                 </div>
                 <div class="row mt-4">
-                    <input type="text" ngModel name="confortGrade" id="confortGrade" placeholder="Confort Grade" #confortGrade>
+                    <input type="number" min="0" max="10" ngModel name="confortGrade" id="confortGrade" placeholder="Confort Grade" #confortGrade required>
                 </div>
                 <div class="row mt-4">
-                    <input type="text" ngModel name="designGrade" id="designGrade" placeholder="Desgin Grade" #designGrade>
+                    <input type="number" min="0" max="10" ngModel name="designGrade" id="designGrade" placeholder="Desgin Grade" #designGrade required>
                 </div>
                 <div class="row mt-4">
-                    <input type="text" ngModel name="durabiliteGrade" id="durabiliteGrade" placeholder="Durabilite Grade"
-                    #durabiliteGrade>
+                    <input type="number" min="0" max="10" ngModel name="durabiliteGrade" id="durabiliteGrade" placeholder="Durabilite Grade"
+                    #durabiliteGrade required>
                 </div>
                 <div class="row mt-4">
-                    <input type="text" ngModel name="gripGrade" id="gripGrade" placeholder="Grip Grade" #gripGrade>
+                    <input type="number" min="0" max="10" ngModel name="gripGrade" id="gripGrade" placeholder="Grip Grade" #gripGrade required>
                 </div>
                 <div class="row mt-4">
-                    <input type="text" ngModel name="maintienGrade" id="maintienGrade" placeholder="Maintien Grade" #maintienGrade>
+                    <input type="number" min="0" max="10" ngModel name="maintienGrade" id="maintienGrade" placeholder="Maintien Grade" #maintienGrade required>
                 </div>
                 <div class="row mt-4">
                     <div class="col"></div>

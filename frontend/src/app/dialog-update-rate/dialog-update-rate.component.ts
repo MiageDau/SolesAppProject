@@ -30,11 +30,31 @@ export class DialogUpdateRateComponent implements OnInit {
       maintienGrade : form.value.maintienGrade
     }
     console.log(updatedRate);
-    this.rateService.putRate(updatedRate).subscribe((response:any)=>{
-      console.log(response);
-      window.location.reload();
-    })
-    
+    if(
+      updatedRate.amortiGrade == "" || updatedRate.confortGrade == "" || updatedRate.designGrade == "" ||
+      updatedRate.durabiliteGrade == "" || updatedRate.gripGrade == "" || updatedRate.maintienGrade == ""
+
+    ){
+      alert("To update, you need to fill all the fields of the form...");
+      
+    }if(
+      updatedRate.amortiGrade < 0 || updatedRate.confortGrade < 0 || updatedRate.designGrade < 0 ||
+      updatedRate.durabiliteGrade < 0 || updatedRate.gripGrade < 0 || updatedRate.maintienGrade < 0
+    ){
+      alert("To update, you need to fill all the fields with input up to 0...");
+    }
+    if(
+      updatedRate.amortiGrade > 10 || updatedRate.confortGrade > 10 || updatedRate.designGrade > 10 ||
+      updatedRate.durabiliteGrade > 10 || updatedRate.gripGrade > 10 || updatedRate.maintienGrade > 10
+    ){
+      alert("To update, you need to fill all the fields with input up to 10...");
+    }
+    else{
+      this.rateService.putRate(updatedRate).subscribe((response:any)=>{
+        console.log(response);
+        window.location.reload();
+      })
+    }
   }
 
 }
