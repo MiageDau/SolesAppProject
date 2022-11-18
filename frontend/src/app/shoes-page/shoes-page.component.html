@@ -9,8 +9,8 @@
     <mat-form-field appearance="fill">
       <mat-label>Select</mat-label>
       <mat-select>
-        <mat-option value="option1">Sort by <span id="bold-select">Name</span></mat-option>
-        <mat-option value="option2">Sort by <span id="bold-select">Rate</span></mat-option>
+        <mat-option (click)="sortName()">Sort by <span id="bold-select">Name</span></mat-option>
+        <mat-option (click)="sortBrand()">Sort by <span id="bold-select">Brand</span></mat-option>
       </mat-select>
     </mat-form-field>
   </div>
