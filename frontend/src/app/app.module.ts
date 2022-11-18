@@ -37,6 +37,9 @@ import { MatInputModule } from "@angular/material/input";
 import { FormsModule } from "@angular/forms";
 import { MatCardModule } from "@angular/material/card";
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogUpdateRateComponent } from './dialog-update-rate/dialog-update-rate.component'; 
+import {MatTableModule} from '@angular/material/table'; 
 
 
 
@@ -56,7 +59,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     AdminShoeComponent,
     LoginComponent,
     RegisterComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    DialogUpdateRateComponent
 
   ],
   imports: [
@@ -84,7 +88,9 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    MatTableModule
 
   ],
   providers: [],
