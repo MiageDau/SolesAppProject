@@ -25,8 +25,8 @@
     <img id="bg-img"mat-card-image src="assets/img/shoe1.png"  alt="Photo of a nike shoe">
     
       <mat-card-actions>
-        <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary">Rate</button>
-        <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary">See more</button>
+        <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary" disabled>Rate</button>
+        <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary" disabled>See more</button>
     </mat-card-actions>
   </mat-card>  
   <mat-card class="example-card">
@@ -36,8 +36,8 @@
     </mat-card-header>
     <img id="bg-img"mat-card-image src="assets/img/shoe2.png" alt="Photo of a Shiba Inu">
     <mat-card-actions>
-      <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary">Rate</button>
-      <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary">See more</button>
+      <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary"disabled>Rate</button>
+      <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary"disabled>See more</button>
   </mat-card-actions>
   </mat-card> 
   <mat-card class="example-card">
@@ -49,8 +49,8 @@
     <img id="bg-img"mat-card-image src="assets/img/shoe3-removebg-preview.png"  alt="Photo of a Shiba Inu">
 
     <mat-card-actions>
-      <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary">Rate</button>
-      <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary">See more</button>
+      <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary"disabled>Rate</button>
+      <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary"disabled>See more</button>
   </mat-card-actions>
   </mat-card> 
   <mat-card class="example-card">
@@ -60,8 +60,8 @@
     </mat-card-header>
     <img mat-card-image src="assets/img/shoe4.webp" alt="Photo of a Shiba Inu">
     <mat-card-actions>
-      <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary">Rate</button>
-      <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary">See more</button>
+      <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary"disabled>Rate</button>
+      <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary"disabled>See more</button>
   </mat-card-actions>
   </mat-card> 
   <!-- Mise en place de la boucle d'affichage des chaussures -->
@@ -72,7 +72,8 @@
     </mat-card-header>
     <img mat-card-image src="assets/img/shoe4.webp" alt="Photo of a Shiba Inu">
     <mat-card-actions>
-      <button routerLink="/rating/{{shoe._id}}" routerLinkActive="active-link"mat-raised-button color="primary">Rate</button>
+      <button *ngIf="!isLogged()" routerLink="/login" routerLinkActive="active-link"mat-raised-button color="primary">Rate</button>
+      <button *ngIf="isLogged()" routerLink="/rating/{{shoe._id}}" routerLinkActive="active-link"mat-raised-button color="primary">Rate</button>
       <button routerLink="/shoe/{{shoe._id}}" routerLinkActive="active-link"mat-raised-button color="primary">See more</button>
   </mat-card-actions>
   </mat-card>

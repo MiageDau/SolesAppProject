@@ -52,4 +52,6 @@ export class HeaderComponent implements OnInit {
     return this.http.get("http://localhost/islogged");
   }
 
+
+
 }

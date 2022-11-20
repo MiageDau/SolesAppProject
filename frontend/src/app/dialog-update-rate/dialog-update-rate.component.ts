@@ -47,7 +47,7 @@ export class DialogUpdateRateComponent implements OnInit {
       updatedRate.amortiGrade > 10 || updatedRate.confortGrade > 10 || updatedRate.designGrade > 10 ||
       updatedRate.durabiliteGrade > 10 || updatedRate.gripGrade > 10 || updatedRate.maintienGrade > 10
     ){
-      alert("To update, you need to fill all the fields with input up to 10...");
+      alert("To update, you need to fill all the fields with no input up to 10...");
     }
     else{
       this.rateService.putRate(updatedRate).subscribe((response:any)=>{
