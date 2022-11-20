@@ -12,6 +12,7 @@
             <div class="row" id="shoeInfos">
                 <div class="col">
                     <h2> {{this.brandName}} - {{this.shoeName}} </h2>
+                    
                 </div>
     
             </div>
@@ -20,7 +21,10 @@
                     <mat-card class="shoePictures">
                         <mat-card-content>
                                 <div class="titre">
-                                    <h1>Global rate</h1>
+                                    <h1>Global rate </h1>
+                                    <h4>
+                                        Based on {{this.numberOfRate}} users rates
+                                    </h4>
                                 </div>
                                 <span class="badge rounded-pill text-bg-{{this.badgeColor}}" id="rateBadge">
                                     {{this.totalGrade}}

@@ -12,6 +12,7 @@ import { Shoe } from '../shared/shoe';
 export class ShoePageComponent implements OnInit {
   brandName!: String
   shoeName!: String
+  numberOfRate!: Number
   rates!: Rate[]
   amortiGradeAverage!: String
   amortiGradeAverageSlider!: Number
@@ -58,8 +59,10 @@ export class ShoePageComponent implements OnInit {
     let _id = url.substr(27)
     this.shoeService.getShoeInformation(_id).subscribe((response: any) => {
       this.shoeService.selectedShoe = response;
+      console.log("response  :")
       console.log(response);
       //On stock dans nos variables le nom et la marque de la chaussures
+      
       this.brandName = response.brandName;
       this.shoeName = response.shoeName;
     })
@@ -88,6 +91,7 @@ export class ShoePageComponent implements OnInit {
         }
       });
       console.log(rateOfShoe);
+      this.numberOfRate = rateOfShoe.length;
       let amortiGradeTable: any = [];
       rateOfShoe.forEach((element: any) => {
         amortiGradeTable.push(element.amortiGrade);
