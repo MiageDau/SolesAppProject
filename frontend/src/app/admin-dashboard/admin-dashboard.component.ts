@@ -10,8 +10,8 @@ import { Shoe } from "../shared/shoe";
   providers: [ShoeService]
 })
 export class AdminDashboardComponent implements OnInit {
-  image?:File;
-  @ViewChild('picturePath',{static:false}) picturePath? : ElementRef;
+  
+  @ViewChild('fileInput', {static:true}) fileupload! : ElementRef;
 
   constructor(public shoeService: ShoeService) { }
 
@@ -20,16 +20,17 @@ export class AdminDashboardComponent implements OnInit {
     this.refreshShoeList();
   }
 
-  selectedFile(event:any){
-    if(event.target.files.length>0){
-      const file = <File>event.target.files[0];
-      console.log(file);
-      this.image = file;
-    }
-  }
-
 // Fonctionne mais pas de gestion des images
   onSubmit(form?: NgForm){
+    // const imageBlob = this.fileupload.nativeElement.files[0];
+    // console.log(imageBlob);
+    // let formData = new FormData();
+    // formData.set('shoeName',form?.value.shoeName);
+    // formData.set('brandName',form?.value.brandName);
+    // formData.set('file',imageBlob)
+    // console.log(formData);
+
+    // console.log(form?.value);
     if(form?.value._id == ""){
       this.shoeService.postShoe(form?.value).subscribe((response:any)=>{
         this.resetForm(form);
@@ -51,7 +52,7 @@ export class AdminDashboardComponent implements OnInit {
       _id: "",
       shoeName: "",
       brandName: "",
-      picture: ""
+      // fileInput: ""
     }
   }
 
