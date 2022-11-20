@@ -6,7 +6,7 @@
             <div class="container">
                 <form #shoeForm="ngForm" (ngSubmit)="onSubmit(shoeForm)" enctype="multipart/form-data">
                     <div class="row">
-                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="shoeService.selectedShoe._id">
+                        <input type="hidden" name="_id" id="_id" #_id="ngModel" [(ngModel)]="shoeService.selectedShoe._id">
                     </div>
                     <div class="row">
                         <mat-form-field appearance="fill">
@@ -26,6 +26,7 @@
                     </div>
                     <div class="row mt-4">
                         <div class="col">
+                            <button *ngIf ="" mat-raised-button color="dark"  type="submit" [disabled]="!shoeForm.valid">Create</button>
                             <button mat-raised-button color="dark"  type="submit" [disabled]="!shoeForm.valid">Create</button>
                         </div>
                         <div class="col">
