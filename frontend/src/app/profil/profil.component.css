@@ -80,3 +80,9 @@ table{
  text-align: center;
 
 }
+.material-icons{
+    cursor:pointer;
+}
+#profil-info{
+    font-weight:500;
+}
