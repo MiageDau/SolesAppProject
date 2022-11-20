@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Shoe } from '../shared/shoe';
 import { ShoeService } from "../shared/shoe.service";
+import { AuthService } from "../shared/auth.service";
 
 @Component({
   selector: 'app-shoes-page',
@@ -9,10 +10,12 @@ import { ShoeService } from "../shared/shoe.service";
 })
 export class ShoesPageComponent implements OnInit {
 
+  rateButtonValue!: String;
   constructor(public shoeService: ShoeService) { }
 
   ngOnInit(): void {
     this.refreshShoeList();
+    
   }
 
   refreshShoeList(){
@@ -44,5 +47,17 @@ sortBrand(){
   }
   );console.log(this.shoeService.shoes);
 }
+
+isLogged():Boolean{
+  let res = false;
+  if(sessionStorage.getItem("id")){
+    // console.log("Connecté")
+    res = true
+  }else{
+    // console.log('non connecté');
+  }
+  return res;
+}
+
 
 }
