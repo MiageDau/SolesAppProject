@@ -10,8 +10,10 @@ import { Shoe } from '../shared/shoe';
   styleUrls: ['./shoe-page.component.css']
 })
 export class ShoePageComponent implements OnInit {
+  
+  urlPictureShoe!:String
   brandName!: String
-  shoeName!: String
+  shoeName!: String 
   numberOfRate!: Number
   rates!: Rate[]
   amortiGradeAverage!: String
@@ -65,6 +67,8 @@ export class ShoePageComponent implements OnInit {
       
       this.brandName = response.brandName;
       this.shoeName = response.shoeName;
+      this.urlPictureShoe = response.image;
+
     })
   }
 

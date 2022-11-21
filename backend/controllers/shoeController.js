@@ -2,30 +2,12 @@ const { request, response } = require('express');
 const express = require('express');
 var router = express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
+const path = require("path");  
+
 
 
 var { Shoe } = require('../models/shoe');
 const multer = require('multer');
-// const MIME_TYPE_MAP = {  
-//     'image/png': 'png',  
-//     'image/jpeg': 'jpg',  
-//     'image/jpg': 'jpg'  
-//   }; 
-// const storage = multer.diskStorage({
-//     destination: (request,file,cb)=>{
-//         const isValid = MIME_TYPE_MAP[file.mimetype];
-//         let error = new Error("Invalid Mime Type")
-//             if(isValid){
-//                 error= null;
-//             }
-//         cb(error,"./backend/images");
-//     },
-//     filename: (request,file,cb)=>{
-//         const name = file.originalname.toLowerCase().split(' ').join('_');
-//         const ext = MIME_TYPE_MAP[file.mimetype];
-//         cb(null, name+'-'+Date.now()+'.'+ext);
-//     }
-// });  
 
 const storage = multer.diskStorage({
     destination: './pictures',
@@ -34,7 +16,6 @@ const storage = multer.diskStorage({
     }
 })
 const upload = multer({ storage: storage });
-
 
 
 //Get shoes
@@ -66,38 +47,19 @@ router.post('/', upload.single('file'), (req, res) => {
     console.log(req.file);
     let shoeName = req.body.shoeName;
     let brandName = req.body.brandName;
-    let url = req.protocol + '://' + req.get('host')+"/images/"+req.file.filename;
+    let url = req.protocol + '://' + req.get('host')+"/pictures/"+req.file.filename;
     
     var shoe = new Shoe({
         shoeName: shoeName,
         brandName: brandName,
         image : url
     })
-    shoe.save((error,doc)=>{
-        if(!error) {
-            response.send(doc)
-        }
-        else{ 
-            console.log('Error in Shoe save : '+ JSON.stringify(error, undefined, 2));
-        }
-    });
+    shoe.save();
+
 });
 
+//get shoe Image by URL 
 
-// router.post('/',multer(storage).single('myFiles'), (request, response) =>{
-//     console.log(request.file);
-//     const url = request.protocol+'://'+request.get('host');
-//     var shoe = new Shoe({
-//         shoeName : request.body.shoeName,
-//         brandName : request.body.brandName,
-//         image: url+"/public/images/"+request.file.filename
-//     });
-// shoe.save((error,doc)=>{
-//     if(!error) {
-//         response.send(doc)}
-//     else{ console.log('Error in Shoe save : '+ JSON.stringify(error, undefined, 2));}
-// });
-// });
 
 
 // Get shoe by :id

@@ -16,6 +16,7 @@ export class RatingComponent implements OnInit {
   shoeId! : String;
   shoeName! : String
   brandName! : String
+  picturePath! : String
 
   constructor(public shoeService:ShoeService, private router: Router,public rateService:RateService, public authService:AuthService, public _snackBar:MatSnackBar) { }
 
@@ -32,6 +33,7 @@ export class RatingComponent implements OnInit {
       this.shoeId = response._id;
       this.shoeName = response.shoeName;
       this.brandName = response.brandName;
+      this.picturePath = response.image;
 
       // console.log(response.shoeName);   
     })

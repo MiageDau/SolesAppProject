@@ -30,20 +30,24 @@ export class AdminDashboardComponent implements OnInit {
     file.set('file',imageBlob);
     file.set('shoeName', shoeName);
     file.set('brandName', brandName);
-
-
+    
     if(form?.value._id == ""){
+      
       this.shoeService.postShoe(file).subscribe((response:any) => {
-        console.log(response);
-            this.resetForm(form);
-          this.refreshShoeList();
+        console.log("Done ");
+  
+        // this.resetForm(form);
+        // this.refreshShoeList();
       });
     } else {      
       this.shoeService.putShoe(form?.value).subscribe((response:any)=>{
         this.resetForm(form);
         this.refreshShoeList();
       });
+
+
     }
+
 
 
     
@@ -69,7 +73,7 @@ export class AdminDashboardComponent implements OnInit {
       _id: "",
       shoeName: "",
       brandName: "",
-      // fileInput: ""
+      image: ""
     }
   }
 
