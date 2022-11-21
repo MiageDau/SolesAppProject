@@ -3,6 +3,9 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ShoeService } from "../shared/shoe.service";
 import { Shoe } from "../shared/shoe";
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
@@ -13,7 +16,7 @@ export class AdminDashboardComponent implements OnInit {
   
   @ViewChild('fileInput', {static:true}) fileupload! : ElementRef;
 
-  constructor(public shoeService: ShoeService) { }
+  constructor(public shoeService: ShoeService, public _snackBar:MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
     this.resetForm();
@@ -34,35 +37,23 @@ export class AdminDashboardComponent implements OnInit {
     if(form?.value._id == ""){
       
       this.shoeService.postShoe(file).subscribe((response:any) => {
-        console.log("Done ");
-  
-        // this.resetForm(form);
-        // this.refreshShoeList();
+        this._snackBar.open(' Shoe add with success ! ', 'Undo', {
+          duration: 3000
+        });  
+        this.resetForm(form);
+        this.refreshShoeList();
       });
     } else {      
       this.shoeService.putShoe(form?.value).subscribe((response:any)=>{
+        this._snackBar.open('Shoe update with success ! ', 'Undo', {
+          duration: 3000
+        });  
         this.resetForm(form);
         this.refreshShoeList();
       });
 
 
     }
-
-
-
-    
-    // console.log(form?.value);
-    // if(form?.value._id == ""){
-    //   this.shoeService.postShoe(form?.value).subscribe((response:any)=>{
-    //     this.resetForm(form);
-    //     this.refreshShoeList();
-    //   });
-    // } else {      
-    //   this.shoeService.putShoe(form?.value).subscribe((response:any)=>{
-    //     this.resetForm(form);
-    //     this.refreshShoeList();
-    //   });
-    // }
   }
   
 

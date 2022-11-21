@@ -25,7 +25,7 @@ export class ShoesPageComponent implements OnInit {
   }
 
   sortName(){
-    console.log(this.shoeService.shoes);
+    // console.log(this.shoeService.shoes);
     this.shoeService.shoes.sort(function compare(a, b) {
       if (a.shoeName < b.shoeName)
          return -1;
@@ -33,19 +33,19 @@ export class ShoesPageComponent implements OnInit {
          return 1;
       return 0;
       
-    }
-    );console.log(this.shoeService.shoes);
+    });
+    // console.log(this.shoeService.shoes);
 }
 sortBrand(){
-  console.log(this.shoeService.shoes);
+  // console.log(this.shoeService.shoes);
   this.shoeService.shoes.sort(function compare(a, b) {
     if (a.brandName < b.brandName)
        return -1;
     if (a.brandName > b.brandName)
        return 1;
     return 0;
-  }
-  );console.log(this.shoeService.shoes);
+  });
+  // console.log(this.shoeService.shoes);
 }
 
 isLogged():Boolean{

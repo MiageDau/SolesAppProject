@@ -65,7 +65,7 @@ export class RatingComponent implements OnInit {
       this._snackBar.open(' Rating with success, Thank you! ', 'Undo', {
         duration: 3000
       });  
-      console.log(response);
+      // console.log(response);
       this.router.navigateByUrl('/shoes');
     })
 
