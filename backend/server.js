@@ -18,7 +18,7 @@ var rateController = require('./controllers/rateControllers');
 var user_id = "";
 const fileUpload = require('express-fileupload');
 const { use } = require('./controllers/shoeController');
-
+const path = require("path");  
 
 
 // Configuration et connexion avec la base de données
@@ -134,6 +134,10 @@ app.get('/users', (request,response)=>{
     })
 })
 // Fin du Middlewar getUser
+
+// router.use(express.static('/pictures'));
+// router.use("/pictures", express.static(path.join("backend/pictures")));
+app.use('/pictures',express.static('./pictures'));
 
 
 //Middleware get shoes

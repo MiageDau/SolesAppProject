@@ -12,9 +12,13 @@ export class ShoeService {
   readonly baseUrl = 'http://localhost:3000/shoes'
   constructor(private http: HttpClient) { }
 
-  postShoe(shoe: Shoe){
+  postShoe(shoe: any){
     return this.http.post(this.baseUrl,shoe);
   }
+
+  // postShoe(shoe: Shoe){
+  //   return this.http.post(this.baseUrl,shoe);
+  // }
 
   getShoesList(){
     return this.http.get(this.baseUrl);

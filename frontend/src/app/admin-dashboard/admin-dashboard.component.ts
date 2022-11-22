@@ -3,6 +3,9 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ShoeService } from "../shared/shoe.service";
 import { Shoe } from "../shared/shoe";
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
@@ -10,36 +13,46 @@ import { Shoe } from "../shared/shoe";
   providers: [ShoeService]
 })
 export class AdminDashboardComponent implements OnInit {
-  image?:File;
-  @ViewChild('picturePath',{static:false}) picturePath? : ElementRef;
+  
+  @ViewChild('fileInput', {static:true}) fileupload! : ElementRef;
 
-  constructor(public shoeService: ShoeService) { }
+  constructor(public shoeService: ShoeService, public _snackBar:MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
     this.resetForm();
     this.refreshShoeList();
   }
 
-  selectedFile(event:any){
-    if(event.target.files.length>0){
-      const file = <File>event.target.files[0];
-      console.log(file);
-      this.image = file;
-    }
-  }
-
 // Fonctionne mais pas de gestion des images
   onSubmit(form?: NgForm){
+    const imageBlob = this.fileupload.nativeElement.files[0];
+    const shoeName = form?.value.shoeName;
+    const brandName = form?.value.brandName;
+    console.log(imageBlob);
+    const file = new FormData();
+    file.set('file',imageBlob);
+    file.set('shoeName', shoeName);
+    file.set('brandName', brandName);
+    
     if(form?.value._id == ""){
-      this.shoeService.postShoe(form?.value).subscribe((response:any)=>{
+      
+      this.shoeService.postShoe(file).subscribe((response:any) => {
+        this._snackBar.open(' Shoe add with success ! ', 'Undo', {
+          duration: 3000
+        });  
         this.resetForm(form);
         this.refreshShoeList();
       });
     } else {      
       this.shoeService.putShoe(form?.value).subscribe((response:any)=>{
+        this._snackBar.open('Shoe update with success ! ', 'Undo', {
+          duration: 3000
+        });  
         this.resetForm(form);
         this.refreshShoeList();
       });
+
+
     }
   }
   
@@ -51,7 +64,7 @@ export class AdminDashboardComponent implements OnInit {
       _id: "",
       shoeName: "",
       brandName: "",
-      picture: ""
+      image: ""
     }
   }
 
@@ -73,4 +86,5 @@ export class AdminDashboardComponent implements OnInit {
       });
     }
   }
+
 }

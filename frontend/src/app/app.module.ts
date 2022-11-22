@@ -39,7 +39,8 @@ import { MatCardModule } from "@angular/material/card";
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogUpdateRateComponent } from './dialog-update-rate/dialog-update-rate.component'; 
-import {MatTableModule} from '@angular/material/table'; 
+import {MatTableModule} from '@angular/material/table';
+import { FooterComponent } from './footer/footer.component'; 
 
 
 
@@ -60,7 +61,8 @@ import {MatTableModule} from '@angular/material/table';
     LoginComponent,
     RegisterComponent,
     AdminDashboardComponent,
-    DialogUpdateRateComponent
+    DialogUpdateRateComponent,
+    FooterComponent
 
   ],
   imports: [

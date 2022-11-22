@@ -1,30 +1,31 @@
+<hr>
 <div class="container mt-4">
     <div class="aboutYou mt-4">
         <div class="row">
             <div class="col">
                 <mat-card>
                     <mat-card-title>
-                        <h2>About you</h2>
+                        <h1>About you</h1>
                         <hr>
                     </mat-card-title>
                     <mat-card-content>
                         <div class="row">
                             <div class="col">
-                                <h2>Fullname</h2>
+                                <h3>Fullname</h3>
                             </div>
                             <div class="col">
                                 <h4>
-                                    {{getFullName()}}
+                                    <span id="profil-info">{{getFullName()}}</span>
                                 </h4>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h2>Login</h2>
+                                <h3>Login</h3>
                             </div>
                             <div class="col">
                                 <h4>
-                                    {{getLogin()}}
+                                    <span id="profil-info">{{getLogin()}}</span>
                                 </h4>
                             </div>
                         </div>
@@ -32,8 +33,8 @@
                 </mat-card>
                 <mat-card>
                     <mat-card-content>
-                        <h2>Number of reviews given : <span id="nbre-avis">4/10 </span></h2>
-                        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                        <h2>Number of reviews given : <span id="nbre-avis">{{this.ratesOfUser.length}}/10 </span></h2>
+                        <mat-progress-bar mode="determinate" value="{{this.ratesOfUser.length*10}}"></mat-progress-bar>
                     </mat-card-content>
                 </mat-card>
             </div>
@@ -48,7 +49,7 @@
             <mat-card-title>
                 <h2>Manage your rates : </h2>
             </mat-card-title>
-            <hr>
+            
         </mat-card>
         <div class="container-flluid" class="tableContainer">
         <table class="table">

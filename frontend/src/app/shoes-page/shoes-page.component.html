@@ -1,16 +1,15 @@
-<hr>
 <div class="container">
 <div class="espace-cli">
   <div class="row">
     <div id="h1-div"class="col-lg-6">
-    <h1>Liste des chaussures</h1>
+    <h1>Shoes list</h1>
   </div>
   <div id="align-right"class="col-lg-6">
     <mat-form-field appearance="fill">
       <mat-label>Select</mat-label>
       <mat-select>
-        <mat-option value="option1">Sort by <span id="bold-select">Name</span></mat-option>
-        <mat-option value="option2">Sort by <span id="bold-select">Rate</span></mat-option>
+        <mat-option (click)="sortName()">Sort by <span id="bold-select">Name</span></mat-option>
+        <mat-option (click)="sortBrand()">Sort by <span id="bold-select">Brand</span></mat-option>
       </mat-select>
     </mat-form-field>
   </div>
@@ -18,16 +17,17 @@
   </div>
   <hr>
 </div>
-<mat-card class="example-card">
+<!-- <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title>Nike Air Flight Lite Mid</mat-card-title>
       <mat-card-subtitle>Nike</mat-card-subtitle>
     </mat-card-header>
+  
     <img id="bg-img"mat-card-image src="assets/img/shoe1.png"  alt="Photo of a nike shoe">
     
       <mat-card-actions>
-        <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary">Rate</button>
-        <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary">See more</button>
+        <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary" disabled>Rate</button>
+        <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary" disabled>See more</button>
     </mat-card-actions>
   </mat-card>  
   <mat-card class="example-card">
@@ -37,8 +37,8 @@
     </mat-card-header>
     <img id="bg-img"mat-card-image src="assets/img/shoe2.png" alt="Photo of a Shiba Inu">
     <mat-card-actions>
-      <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary">Rate</button>
-      <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary">See more</button>
+      <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary"disabled>Rate</button>
+      <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary"disabled>See more</button>
   </mat-card-actions>
   </mat-card> 
   <mat-card class="example-card">
@@ -50,8 +50,8 @@
     <img id="bg-img"mat-card-image src="assets/img/shoe3-removebg-preview.png"  alt="Photo of a Shiba Inu">
 
     <mat-card-actions>
-      <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary">Rate</button>
-      <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary">See more</button>
+      <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary"disabled>Rate</button>
+      <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary"disabled>See more</button>
   </mat-card-actions>
   </mat-card> 
   <mat-card class="example-card">
@@ -61,22 +61,25 @@
     </mat-card-header>
     <img mat-card-image src="assets/img/shoe4.webp" alt="Photo of a Shiba Inu">
     <mat-card-actions>
-      <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary">Rate</button>
-      <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary">See more</button>
+      <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary"disabled>Rate</button>
+      <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary"disabled>See more</button>
   </mat-card-actions>
-  </mat-card> 
+  </mat-card>  -->
   <!-- Mise en place de la boucle d'affichage des chaussures -->
-  <mat-card class="example-card" *ngFor="let shoe of shoeService.shoes" id="{{shoe._id}}"> 
+  <mat-card class="example-card" *ngFor="let shoe of shoeService.shoes " id="{{shoe._id}}"> 
     <mat-card-header>
-      <mat-card-title>{{shoe.shoeName}}</mat-card-title>
+      <mat-card-title >{{shoe.shoeName}}</mat-card-title>
       <mat-card-subtitle>{{shoe.brandName}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="assets/img/shoe4.webp" alt="Photo of a Shiba Inu">
+    <!-- <p>Shoe picture path : {{shoe.image}}</p> -->
+    <img mat-card-image [src]= "shoe.image" [alt]= "shoe.shoeName">  
     <mat-card-actions>
-      <button routerLink="/rating/{{shoe._id}}" routerLinkActive="active-link"mat-raised-button color="primary">Rate</button>
+      <button *ngIf="!isLogged()" routerLink="/login" routerLinkActive="active-link"mat-raised-button color="primary">Rate</button>
+      <button *ngIf="isLogged()" routerLink="/rating/{{shoe._id}}" routerLinkActive="active-link"mat-raised-button color="primary">Rate</button>
       <button routerLink="/shoe/{{shoe._id}}" routerLinkActive="active-link"mat-raised-button color="primary">See more</button>
   </mat-card-actions>
   </mat-card>
+  
   
 
 </div>

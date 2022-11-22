@@ -10,8 +10,11 @@ import { Shoe } from '../shared/shoe';
   styleUrls: ['./shoe-page.component.css']
 })
 export class ShoePageComponent implements OnInit {
+  
+  urlPictureShoe!:String
   brandName!: String
-  shoeName!: String
+  shoeName!: String 
+  numberOfRate!: Number
   rates!: Rate[]
   amortiGradeAverage!: String
   amortiGradeAverageSlider!: Number
@@ -58,10 +61,13 @@ export class ShoePageComponent implements OnInit {
     let _id = url.substr(27)
     this.shoeService.getShoeInformation(_id).subscribe((response: any) => {
       this.shoeService.selectedShoe = response;
-      console.log(response);
+      // console.log(response);
       //On stock dans nos variables le nom et la marque de la chaussures
+      
       this.brandName = response.brandName;
       this.shoeName = response.shoeName;
+      this.urlPictureShoe = response.image;
+
     })
   }
 
@@ -81,13 +87,14 @@ export class ShoePageComponent implements OnInit {
 
     this.rateService.getRates().subscribe((response: any) => {
       this.rateService.rates = response as Rate[];
-      console.log(response);
+      // console.log(response);
       response.forEach((shoe: any) => {
         if (shoe.shoe_id == shoe_id) {
           rateOfShoe.push(shoe);
         }
       });
-      console.log(rateOfShoe);
+      // console.log(rateOfShoe);
+      this.numberOfRate = rateOfShoe.length;
       let amortiGradeTable: any = [];
       rateOfShoe.forEach((element: any) => {
         amortiGradeTable.push(element.amortiGrade);
@@ -98,7 +105,7 @@ export class ShoePageComponent implements OnInit {
         (previousValue: any, currentValue: any) => previousValue + currentValue,
         initialValue
       );
-      console.log(sumForAmortiGradeTable);
+      // console.log(sumForAmortiGradeTable);
       amortiGradeShoeAverage = sumForAmortiGradeTable / lengthOfAmortiGradeTable
       this.amortiGradeAverage = amortiGradeShoeAverage.toFixed(2);
       this.amortiGradeAverageSlider = amortiGradeShoeAverage * 10;
@@ -113,13 +120,13 @@ export class ShoePageComponent implements OnInit {
 
     this.rateService.getRates().subscribe((response: any) => {
       this.rateService.rates = response as Rate[];
-      console.log(response);
+      // console.log(response);
       response.forEach((shoe: any) => {
         if (shoe.shoe_id == shoe_id) {
           rateOfShoe.push(shoe);
         }
       });
-      console.log(rateOfShoe);
+      // console.log(rateOfShoe);
       let confortGradeTable: any = [];
       rateOfShoe.forEach((element: any) => {
         confortGradeTable.push(element.confortGrade);
@@ -130,7 +137,7 @@ export class ShoePageComponent implements OnInit {
         (previousValue: any, currentValue: any) => previousValue + currentValue,
         initialValue
       );
-      console.log(sumForconfortGradeTable);
+      // console.log(sumForconfortGradeTable);
       confortGradeShoeAverage = sumForconfortGradeTable / lengthOfconfortGradeTable
       this.confortGradeAverage = confortGradeShoeAverage.toFixed(2);
       this.confortGradeAverageSlider = confortGradeShoeAverage * 10;
@@ -145,13 +152,13 @@ export class ShoePageComponent implements OnInit {
 
     this.rateService.getRates().subscribe((response: any) => {
       this.rateService.rates = response as Rate[];
-      console.log(response);
+      // console.log(response);
       response.forEach((shoe: any) => {
         if (shoe.shoe_id == shoe_id) {
           rateOfShoe.push(shoe);
         }
       });
-      console.log(rateOfShoe);
+      // console.log(rateOfShoe);
       let durabiliteGradeTable: any = [];
       rateOfShoe.forEach((element: any) => {
         durabiliteGradeTable.push(element.durabiliteGrade);
@@ -162,7 +169,7 @@ export class ShoePageComponent implements OnInit {
         (previousValue: any, currentValue: any) => previousValue + currentValue,
         initialValue
       );
-      console.log(sumFordurabiliteGradeTable);
+      // console.log(sumFordurabiliteGradeTable);
       durabiliteGradeShoeAverage = sumFordurabiliteGradeTable / lengthOfdurabiliteGradeTable
       this.durabiliteGradeAverage = durabiliteGradeShoeAverage.toFixed(2);
       this.durabiliteGradeAverageSlider = durabiliteGradeShoeAverage * 10;
@@ -176,13 +183,13 @@ export class ShoePageComponent implements OnInit {
 
     this.rateService.getRates().subscribe((response: any) => {
       this.rateService.rates = response as Rate[];
-      console.log(response);
+      // console.log(response);
       response.forEach((shoe: any) => {
         if (shoe.shoe_id == shoe_id) {
           rateOfShoe.push(shoe);
         }
       });
-      console.log(rateOfShoe);
+      // console.log(rateOfShoe);
       let designGradeTable: any = [];
       rateOfShoe.forEach((element: any) => {
         designGradeTable.push(element.designGrade);
@@ -193,7 +200,7 @@ export class ShoePageComponent implements OnInit {
         (previousValue: any, currentValue: any) => previousValue + currentValue,
         initialValue
       );
-      console.log(sumFordesignGradeTable);
+      // console.log(sumFordesignGradeTable);
       designGradeShoeAverage = sumFordesignGradeTable / lengthOfdesignGradeTable
       this.designGradeAverage = designGradeShoeAverage.toFixed(2);
       this.designGradeAverageSlider = designGradeShoeAverage * 10;
@@ -208,13 +215,13 @@ export class ShoePageComponent implements OnInit {
 
     this.rateService.getRates().subscribe((response: any) => {
       this.rateService.rates = response as Rate[];
-      console.log(response);
+      // console.log(response);
       response.forEach((shoe: any) => {
         if (shoe.shoe_id == shoe_id) {
           rateOfShoe.push(shoe);
         }
       });
-      console.log(rateOfShoe);
+      // console.log(rateOfShoe);
       let maintienGradeTable: any = [];
       rateOfShoe.forEach((element: any) => {
         maintienGradeTable.push(element.maintienGrade);
@@ -225,7 +232,7 @@ export class ShoePageComponent implements OnInit {
         (previousValue: any, currentValue: any) => previousValue + currentValue,
         initialValue
       );
-      console.log(sumFormaintienGradeTable);
+      // console.log(sumFormaintienGradeTable);
       maintienGradeShoeAverage = sumFormaintienGradeTable / lengthOfmaintienGradeTable
       this.maintienGradeAverage = maintienGradeShoeAverage.toFixed(2);
       this.maintienGradeAverageSlider = maintienGradeShoeAverage * 10;
@@ -240,13 +247,13 @@ export class ShoePageComponent implements OnInit {
   
       this.rateService.getRates().subscribe((response: any) => {
         this.rateService.rates = response as Rate[];
-        console.log(response);
+        // console.log(response);
         response.forEach((shoe: any) => {
           if (shoe.shoe_id == shoe_id) {
             rateOfShoe.push(shoe);
           }
         });
-        console.log(rateOfShoe);
+        // console.log(rateOfShoe);
         let gripGradeTable: any = [];
         rateOfShoe.forEach((element: any) => {
           gripGradeTable.push(element.gripGrade);
@@ -257,7 +264,7 @@ export class ShoePageComponent implements OnInit {
           (previousValue: any, currentValue: any) => previousValue + currentValue,
           initialValue
         );
-        console.log(sumForgripGradeTable);
+        // console.log(sumForgripGradeTable);
         gripGradeShoeAverage = sumForgripGradeTable / lengthOfgripGradeTable
         this.gripGradeAverage = gripGradeShoeAverage.toFixed(2);
         this.gripGradeAverageSlider = gripGradeShoeAverage * 10;
@@ -271,7 +278,7 @@ export class ShoePageComponent implements OnInit {
       let rateOfShoe: any = [];
       this.rateService.getRates().subscribe((response: any) => {
         this.rateService.rates = response as Rate[];
-        console.log(response);
+        // console.log(response);
         response.forEach((shoe: any) => {
           //Vérification de l'id de la shoe avec celle qui est affiché
           if (shoe.shoe_id == shoe_id) {
@@ -348,8 +355,8 @@ export class ShoePageComponent implements OnInit {
         finalGradeTable.push(MaintienGrade);
         finalGradeTable.push(GripGrade);
 
-        console.log('tab final');
-        console.log(finalGradeTable);
+        // console.log('tab final')
+        // console.log(finalGradeTable);
 
         
         //calcul de la note final de la chaussure
@@ -359,8 +366,8 @@ export class ShoePageComponent implements OnInit {
           initialValue
         );
         let totalGradeFinal = sumFinal/sizeFinal;
-        console.log('Final');
-        console.log(totalGradeFinal)
+        // console.log('Final');
+        // console.log(totalGradeFinal)
 
         this.totalGrade = totalGradeFinal.toFixed(2);
         //Gestion des couleurs d'affichage du badge

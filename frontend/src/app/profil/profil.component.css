@@ -57,7 +57,7 @@ width: 250px;
     display: block;
     width:350px;
 }
-h2{
+h1,h2,h3,h4{
     text-align: center;
 }
 #nbre-avis{
@@ -79,4 +79,10 @@ table{
     
  text-align: center;
 
+}
+.material-icons{
+    cursor:pointer;
+}
+#profil-info{
+    font-weight:500;
 }
