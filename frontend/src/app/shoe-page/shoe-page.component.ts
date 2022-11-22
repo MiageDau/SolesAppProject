@@ -11,6 +11,7 @@ import { Shoe } from '../shared/shoe';
 })
 export class ShoePageComponent implements OnInit {
   
+  shoe_id!: String
   urlPictureShoe!:String
   brandName!: String
   shoeName!: String 
@@ -67,6 +68,7 @@ export class ShoePageComponent implements OnInit {
       this.brandName = response.brandName;
       this.shoeName = response.shoeName;
       this.urlPictureShoe = response.image;
+      this.shoe_id = _id;
 
     })
   }

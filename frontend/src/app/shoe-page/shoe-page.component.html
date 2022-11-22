@@ -1,34 +1,32 @@
-
 <hr>
 <div class="container mt-4">
     <div class="row mt-4">
         <div class="col">
             <mat-card class="shoePictures">
-                <img mat-card-image src="{{this.urlPictureShoe}}"
-                    alt="{{this.shoeName}}">
+                <img mat-card-image src="{{this.urlPictureShoe}}" alt="{{this.shoeName}}">
             </mat-card>
         </div>
         <div class="col">
             <div class="row" id="shoeInfos">
                 <div class="col">
                     <h2> {{this.brandName}} - {{this.shoeName}} </h2>
-                    
+
                 </div>
-    
+
             </div>
             <div class="row">
                 <div class="shoeOverallGrade mb-3">
                     <mat-card class="shoePictures">
                         <mat-card-content>
-                                <div class="titre">
-                                    <h1>Global rate </h1>
-                                    <h4>
-                                        Based on {{this.numberOfRate}} users rates
-                                    </h4>
-                                </div>
-                                <span class="badge rounded-pill text-bg-{{this.badgeColor}}" id="rateBadge">
-                                    {{this.totalGrade}}
-                                </span>
+                            <div class="titre">
+                                <h1>Global rate </h1>
+                                <h4>
+                                    Based on {{this.numberOfRate}} users rates
+                                </h4>
+                            </div>
+                            <span class="badge rounded-pill text-bg-{{this.badgeColor}}" id="rateBadge">
+                                {{this.totalGrade}}
+                            </span>
                         </mat-card-content>
                     </mat-card>
                 </div>
@@ -45,7 +43,8 @@
                                 </div>
                                 <div class="col">
                                     <div class="GradeProgressBar">
-                                        <mat-progress-bar mode="determinate" value="{{this.amortiGradeAverageSlider}}"></mat-progress-bar>
+                                        <mat-progress-bar mode="determinate" value="{{this.amortiGradeAverageSlider}}">
+                                        </mat-progress-bar>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -69,7 +68,8 @@
                                 </div>
                                 <div class="col">
                                     <div class="GradeProgressBar">
-                                        <mat-progress-bar mode="determinate" value="{{this.confortGradeAverageSlider}}"></mat-progress-bar>
+                                        <mat-progress-bar mode="determinate" value="{{this.confortGradeAverageSlider}}">
+                                        </mat-progress-bar>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -92,7 +92,8 @@
                                 </div>
                                 <div class="col">
                                     <div class="GradeProgressBar">
-                                        <mat-progress-bar mode="determinate" value="{{this.durabiliteGradeAverageSlider}}"></mat-progress-bar>
+                                        <mat-progress-bar mode="determinate"
+                                            value="{{this.durabiliteGradeAverageSlider}}"></mat-progress-bar>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -115,7 +116,8 @@
                                 </div>
                                 <div class="col">
                                     <div class="GradeProgressBar">
-                                        <mat-progress-bar mode="determinate" value="{{this.designGradeAverageSlider}}"></mat-progress-bar>
+                                        <mat-progress-bar mode="determinate" value="{{this.designGradeAverageSlider}}">
+                                        </mat-progress-bar>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -138,7 +140,8 @@
                                 </div>
                                 <div class="col">
                                     <div class="GradeProgressBar">
-                                        <mat-progress-bar mode="determinate" value="{{this.maintienGradeAverageSlider}}"></mat-progress-bar>
+                                        <mat-progress-bar mode="determinate"
+                                            value="{{this.maintienGradeAverageSlider}}"></mat-progress-bar>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -161,7 +164,8 @@
                                 </div>
                                 <div class="col">
                                     <div class="GradeProgressBar">
-                                        <mat-progress-bar mode="determinate" value="{{this.gripGradeAverageSlider}}"></mat-progress-bar>
+                                        <mat-progress-bar mode="determinate" value="{{this.gripGradeAverageSlider}}">
+                                        </mat-progress-bar>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -171,6 +175,16 @@
                                 </div>
                             </div>
                         </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <mat-card id="buttonRate">
+                        <mat-card-actions>
+                            <button mat-raised-button routerLink="/rating/{{this.shoe_id}}"
+                                routerLinkActive="active-link">Review this shoe ! </button>
+                        </mat-card-actions>
                     </mat-card>
                 </div>
             </div>
