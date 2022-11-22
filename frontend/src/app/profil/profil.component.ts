@@ -16,6 +16,7 @@ import { DialogUpdateRateComponent } from '../dialog-update-rate/dialog-update-r
 export class ProfilComponent implements OnInit {
   rates!: Rate[];
   ratesOfUser!: Rate[];
+  numberOfShoes!: Number;
   
   user_idConnected = sessionStorage.getItem("id");
 
@@ -25,8 +26,16 @@ export class ProfilComponent implements OnInit {
 
     // this.Rates$ = this.rateService.getUserRates();
     this.getAllRates();
+    this.getShoes();
   }
 
+  getShoes(){
+    
+    this.shoeService.getShoesList().subscribe((response:any)=>{
+      
+      this.numberOfShoes = response.length;
+    });
+  }
   getUserId() {
     return sessionStorage.getItem("id");
   }

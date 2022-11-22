@@ -17,12 +17,39 @@ export class RatingComponent implements OnInit {
   shoeName! : String
   brandName! : String
   picturePath! : String
+  isRatedByUser!: Boolean;
+
 
   constructor(public shoeService:ShoeService, private router: Router,public rateService:RateService, public authService:AuthService, public _snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
     this.getShoeInformation();
+    this.isAlreadyRateByUser();
     
+    
+  }
+
+  isAlreadyRateByUser(){
+    this.rateService.getRates().subscribe((response:any)=>{
+      let shoe_id = window.location.href.substr(29);
+      let user_id = sessionStorage.getItem("id");
+      let endCondition = false;
+      response.forEach((rate:any) => {
+        if(rate.shoe_id == shoe_id && rate.user_id == user_id){
+          endCondition = true;
+          // console.log(rate.shoe_id)
+          // console.log(shoe_id)
+          // console.log(rate.user_id)
+          // console.log(user_id)
+        }else{
+          
+        }
+      });
+      this.isRatedByUser = endCondition;
+      console.log(endCondition);
+      console.log(this.isRatedByUser);
+    })
+
   }
 
   getShoeInformation(){

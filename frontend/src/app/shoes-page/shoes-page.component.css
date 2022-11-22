@@ -70,3 +70,7 @@ width: 100px;
 .mat-card-title{
     margin-bottom: 6px;
 }
+.sticky-bottom{
+    position: relative;
+    z-index: -1;
+}

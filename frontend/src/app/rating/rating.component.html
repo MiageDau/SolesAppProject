@@ -75,5 +75,7 @@
             </form>
         </div>
     </div>
-    <button id="center-btn" mat-raised-button color="dark" type="submit" (click)="onSubmit(rateForm)" >Submit</button>
+    <button *ngIf="this.isRatedByUser" id="center-btn" mat-raised-button color="dark" type="submit" (click)="onSubmit(rateForm)" disabled>Submit</button>
+    <button *ngIf="!(this.isRatedByUser)" id="center-btn" mat-raised-button color="dark" type="submit" (click)="onSubmit(rateForm)" >Submit</button>
+    <!-- <button id="center-btn" mat-raised-button color="dark" type="submit" (click)="onSubmit(rateForm)" >Submit</button> -->
 </div>

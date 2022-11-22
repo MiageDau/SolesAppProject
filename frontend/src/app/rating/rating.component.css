@@ -16,3 +16,7 @@ img{
     display: block;
     width:200px;
 }
+.sticky-bottom{
+    position: relative;
+    z-index: -1;
+}

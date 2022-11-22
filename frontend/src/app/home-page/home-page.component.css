@@ -78,3 +78,7 @@ color: white;
 .example-list-wrapping {
     max-width: 500px;
   }
+  .sticky-bottom{
+    position: relative;
+    z-index: -1;
+}
