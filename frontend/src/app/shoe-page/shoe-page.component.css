@@ -22,7 +22,7 @@
 #shoeInfos{
     text-align: center;
 }
-.buttonRate{
+#buttonRate{
     display: flex;
     justify-content: center;
 }
