@@ -18,13 +18,19 @@
     <div class="col">
       <button *ngIf="!isLogged()" mat-raised-button routerLink="/register" routerLinkActive="active-link">Registration</button>
     </div>
+
     <div class="col">
       <img *ngIf="isLogged()" routerLink="/shoes" routerLinkActive="active-link" id="nav-img" src="assets/img/shoesss.png" alt="shoesLink">
     </div>
     <div class="col">
-      <button *ngIf="isLogged()" mat-icon-button routerLink="/profil" routerLinkActive="active-link">
+      <button *ngIf="isLogged() && !isAdmin()" mat-icon-button routerLink="/profil" routerLinkActive="active-link">
       <i class="fa-regular fa-user fa-lg"></i>
     </button>
+    <div class="col">
+      <button *ngIf="isLogged() && isAdmin()" mat-icon-button routerLink="/dashboard" routerLinkActive="active-link">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
     </div>
     <div class="col">
       <button *ngIf="isLogged()" mat-icon-button  (click)="logout()">

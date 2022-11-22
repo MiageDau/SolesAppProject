@@ -2,3 +2,7 @@ mat-card-content{
     justify-content: center;
     text-align: center;
 }
+.fixed-bottom{
+    z-index: -1;
+}
+

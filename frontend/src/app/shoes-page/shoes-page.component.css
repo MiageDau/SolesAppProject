@@ -67,3 +67,6 @@ width: 100px;
     font-style:oblique;
     font-weight:500;
 }
+.mat-card-title{
+    margin-bottom: 6px;
+}

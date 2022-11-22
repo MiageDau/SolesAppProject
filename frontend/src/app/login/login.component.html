@@ -11,7 +11,7 @@
                     <!-- login input -->
                     <mat-form-field appearance="legacy">
                         <label>Login</label>
-                        <input matInput type="text" #login="ngModel" [(ngModel)]="authService.selectedUser.login" name="login" required>
+                        <input matInput type="text" name="login" #login="ngModel" [(ngModel)]="authService.selectedUser.login" required>
                     </mat-form-field>
                 </div>
                 <div class="row mt-4">
@@ -19,7 +19,7 @@
                     <!-- password input -->
                     <mat-form-field appearance="legacy">
                         <label>Password</label>
-                        <input matInput type="password" #password="ngModel" [(ngModel)]="authService.selectedUser.password"  name="password" required>
+                        <input matInput type="password" name="password" #password="ngModel" [(ngModel)]="authService.selectedUser.password"  required>
                     </mat-form-field>
                 </div>
                 <div class="row mt-4" class="footer-form">

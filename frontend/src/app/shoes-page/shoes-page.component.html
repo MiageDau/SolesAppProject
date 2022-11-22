@@ -1,3 +1,4 @@
+<hr>
 <div class="container">
 <div class="espace-cli">
   <div class="row">
@@ -17,54 +18,7 @@
   </div>
   <hr>
 </div>
-<!-- <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>Nike Air Flight Lite Mid</mat-card-title>
-      <mat-card-subtitle>Nike</mat-card-subtitle>
-    </mat-card-header>
-  
-    <img id="bg-img"mat-card-image src="assets/img/shoe1.png"  alt="Photo of a nike shoe">
-    
-      <mat-card-actions>
-        <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary" disabled>Rate</button>
-        <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary" disabled>See more</button>
-    </mat-card-actions>
-  </mat-card>  
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>Jordan zion 1 duke</mat-card-title>
-      <mat-card-subtitle>Jordan</mat-card-subtitle>
-    </mat-card-header>
-    <img id="bg-img"mat-card-image src="assets/img/shoe2.png" alt="Photo of a Shiba Inu">
-    <mat-card-actions>
-      <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary"disabled>Rate</button>
-      <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary"disabled>See more</button>
-  </mat-card-actions>
-  </mat-card> 
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>Air Jordan 7 Retro Quai 54</mat-card-title>
-      <mat-card-subtitle>Nike</mat-card-subtitle>
-    </mat-card-header>
-    
-    <img id="bg-img"mat-card-image src="assets/img/shoe3-removebg-preview.png"  alt="Photo of a Shiba Inu">
 
-    <mat-card-actions>
-      <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary"disabled>Rate</button>
-      <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary"disabled>See more</button>
-  </mat-card-actions>
-  </mat-card> 
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>Nike LeBron 19 Low</mat-card-title>
-      <mat-card-subtitle>Nike</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="assets/img/shoe4.webp" alt="Photo of a Shiba Inu">
-    <mat-card-actions>
-      <button routerLink="/rating" routerLinkActive="active-link"mat-raised-button color="primary"disabled>Rate</button>
-      <button routerLink="/shoe" routerLinkActive="active-link"mat-raised-button color="primary"disabled>See more</button>
-  </mat-card-actions>
-  </mat-card>  -->
   <!-- Mise en place de la boucle d'affichage des chaussures -->
   <mat-card class="example-card" *ngFor="let shoe of shoeService.shoes " id="{{shoe._id}}"> 
     <mat-card-header>

@@ -52,6 +52,14 @@ export class HeaderComponent implements OnInit {
     return this.http.get("http://localhost/islogged");
   }
 
+  isAdmin(){
+    let res = false;
+    if(sessionStorage.getItem("id") == "637cd855cae4c4b9701b2cb4" && sessionStorage.getItem("login") =="Administrateur"){
+      res = true
+    }else{
+    }
+    return res;
+  }
 
 
 }

@@ -27,9 +27,9 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem("login",userInfo.login);
         sessionStorage.setItem("fullname",userInfo.fullname);
         console.log(sessionStorage);
-        this._snackBar.open('Login with success, redirection to HomePage! ', 'Undo', {
-          duration: 3000
-        });  
+        // this._snackBar.open('Login with success, redirection to HomePage! ', 'Undo', {
+        //   duration: 4000
+        // });  
         this.router.navigateByUrl('/home').then(()=>{
           window.location.reload();
         });
