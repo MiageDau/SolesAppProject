@@ -30,29 +30,32 @@
 </div>
 
 <mat-grid-list cols="2" rowHeight="100px">
-  <mat-grid-tile> <p id="catalog-home">Most popular</p></mat-grid-tile>
-  
-    
+  <mat-grid-tile>
+    <p id="catalog-home">Most popular</p>
+  </mat-grid-tile>
+
+
 </mat-grid-list>
 
 <div class="container">
   <div class="row">
     <div class="col-lg-8">
-<mat-list id="list-bottom"role="list" *ngFor="let shoe of shoeService.shoes.slice(0,5) " id="{{shoe._id}}">
-  <mat-list-item class="no-wrap">
-    <img id="img-home"mat-card-image [src]= "shoe.image" [alt]= "shoe.shoeName">  
-    <div>
-  <p id="item-home">{{shoe.shoeName}}</p>
-  <p id="sub-item-home">{{shoe.brandName}}</p>
-</div>
-</mat-list-item>
-</mat-list>
-</div>
-<div class="col-lg-4">
+      <mat-list id="list-bottom" role="list" *ngFor="let shoe of shoeService.shoes" id="{{shoe._id}}">
+        <mat-list-item class="no-wrap">
+          <img id="img-home" mat-card-image [src]="shoe.image" [alt]="shoe.shoeName">
+          <div>
+            <p id="item-home">{{shoe.shoeName}}</p>
+            <p id="sub-item-home">{{shoe.brandName}}</p>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+    <div class="col-lg-4">
 
-<button *ngIf="isLogged()" routerLink="/shoes" routerLinkActive="active-link"mat-flat-button color="primary">See more</button>
-<button *ngIf="!isLogged()" routerLink="/login" routerLinkActive="active-link"mat-flat-button color="primary">See more</button>
-</div>
-</div>
-
+      <button *ngIf="isLogged()" routerLink="/shoes" routerLinkActive="active-link" mat-flat-button color="primary">See
+        more</button>
+      <button *ngIf="!isLogged()" routerLink="/login" routerLinkActive="active-link" mat-flat-button color="primary">See
+        more</button>
+    </div>
+  </div>
 </div>

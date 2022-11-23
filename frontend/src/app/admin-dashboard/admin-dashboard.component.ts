@@ -28,31 +28,31 @@ export class AdminDashboardComponent implements OnInit {
     const imageBlob = this.fileupload.nativeElement.files[0];
     const shoeName = form?.value.shoeName;
     const brandName = form?.value.brandName;
-    console.log(imageBlob);
+    // console.log(imageBlob);
     const file = new FormData();
     file.set('file',imageBlob);
     file.set('shoeName', shoeName);
     file.set('brandName', brandName);
-    
-    if(form?.value._id == ""){
-      
-      this.shoeService.postShoe(file).subscribe((response:any) => {
-        this._snackBar.open(' Shoe add with success ! ', 'Undo', {
-          duration: 3000
-        });  
-        this.resetForm(form);
-        this.refreshShoeList();
-      });
-    } else {      
-      this.shoeService.putShoe(form?.value).subscribe((response:any)=>{
-        this._snackBar.open('Shoe update with success ! ', 'Undo', {
-          duration: 3000
-        });  
-        this.resetForm(form);
-        this.refreshShoeList();
-      });
-
-
+    if(this.isAdmin()){
+      if(form?.value._id == ""){
+        console.log("Enregistrement en bdd...")
+        this.shoeService.postShoe(file).subscribe((response:any) => {
+          this._snackBar.open(' Shoe add with success ! ', 'Undo', {
+            duration: 3000
+          });  
+          this.resetForm(form);
+          this.refreshShoeList();
+        });
+      } else {      
+        console.log("Modification en cours...")
+        this.shoeService.putShoe(form?.value).subscribe((response:any)=>{
+          this._snackBar.open('Shoe update with success ! ', 'Undo', {
+            duration: 3000
+          });  
+          this.resetForm(form);
+          this.refreshShoeList();
+        });
+      }
     }
   }
   
@@ -75,16 +75,29 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   onEdit(shoe : Shoe){
-    this.shoeService.selectedShoe = shoe;
+    if(this.isAdmin()){
+      this.shoeService.selectedShoe = shoe;
+    }
   }
 
   onDelete(_id:String, form: NgForm){
-    if(confirm('Are you sure to delete this shoe ?') == true){
-      this.shoeService.deleteShoe(_id).subscribe((response:any)=>{
-        this.refreshShoeList();
-        this.resetForm(form);
-      });
+    if(this.isAdmin()){
+      if(confirm('Are you sure to delete this shoe ?') == true){
+        this.shoeService.deleteShoe(_id).subscribe((response:any)=>{
+          this.refreshShoeList();
+          this.resetForm(form);
+        });
+      }
     }
+  }
+
+  isAdmin(){
+    let res = false;
+    let login = sessionStorage.getItem('login');
+    if(login == "Administrateur"){
+      res = true;
+    }
+    return res;
   }
 
 }

@@ -9,13 +9,15 @@ import { Shoe } from '../shared/shoe';
 })
 export class HomePageComponent implements OnInit {
 
+  shoesList! : Shoe[];
+
   constructor(public shoeService: ShoeService) { }
 
   ngOnInit(): void {
     this.refreshShoeList();
   }
   refreshShoeList(){
-    this.shoeService.getShoesList().subscribe((response:any)=>{
+    this.shoeService.getShoesListLimited().subscribe((response:any)=>{
       this.shoeService.shoes = response as Shoe[];
     });
   }

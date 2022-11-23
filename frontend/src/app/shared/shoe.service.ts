@@ -23,7 +23,9 @@ export class ShoeService {
   getShoesList(){
     return this.http.get(this.baseUrl);
   }
-
+  getShoesListLimited(){
+    return this.http.get(this.baseUrl+"/limit");
+  }
   putShoe(shoe:Shoe){
     return this.http.put(this.baseUrl+ `/${shoe._id}`, shoe);
   }

@@ -27,6 +27,15 @@ router.get('/', (request, response) => {
     });
 });
 
+//getShoesLimitedBy5
+router.get('/limit', (request, response) => {
+    Shoe.find((error, docs) => {
+        if (!error) { response.send(docs); }
+        else { console.log('Error in retrieving Shoes : ' + JSON.stringify(error, undefined, 2)); }
+    }).limit(5);
+});
+
+
 // Post shoe to DB Fonctionne sans la gestion des images
 // router.post('/',(request, response) =>{
 //     console.log(request.body);
