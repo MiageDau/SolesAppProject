@@ -17,7 +17,10 @@ export class LoginComponent implements OnInit {
   constructor(public authService: AuthService, private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+
   }
+
+
 
   submit(form?: NgForm):any{
     this.authService.login(form?.value.login,form?.value.password).subscribe(

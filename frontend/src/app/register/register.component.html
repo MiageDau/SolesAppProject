@@ -12,6 +12,7 @@
                     <mat-form-field appearance="legacy">
                         <label>Login</label>
                         <input matInput type="text" #login="ngModel" [(ngModel)]="authService.selectedUser.login" name="login"required>
+                        <mat-hint>Before entering your login, please check that there is no space in the input. </mat-hint>
                     </mat-form-field>
                 </div>
                 <div class="row mt-4">

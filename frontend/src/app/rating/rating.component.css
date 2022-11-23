@@ -20,3 +20,6 @@ img{
     position: relative;
     z-index: -1;
 }
+.buttons{
+    text-align: center;
+}

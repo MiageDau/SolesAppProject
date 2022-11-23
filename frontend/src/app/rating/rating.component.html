@@ -75,7 +75,18 @@
             </form>
         </div>
     </div>
-    <button *ngIf="this.isRatedByUser" id="center-btn" mat-raised-button color="dark" type="submit" (click)="onSubmit(rateForm)" disabled>Submit</button>
-    <button *ngIf="!(this.isRatedByUser)" id="center-btn" mat-raised-button color="dark" type="submit" (click)="onSubmit(rateForm)" >Submit</button>
+    <br>
+    <div class="container">
+        <div class="buttons">
+            <button *ngIf="this.isRatedByUser" id="center-btn" mat-raised-button color="dark" type="submit" (click)="onSubmit(rateForm)" disabled>Submit</button>
+            <br>
+            <mat-hint *ngIf="this.isRatedByUser">You already rate this shoe. However, if you want to update it, <a routerLink="/profil" routerLinkActive="active-link">click here.</a></mat-hint>
+            
+            <button *ngIf="!(this.isRatedByUser)" id="center-btn" mat-raised-button color="dark" type="submit" (click)="onSubmit(rateForm)" >Submit</button>
+            <br>
+            <mat-hint *ngIf="!(this.isRatedByUser)">We would be happy to know your opinion on this shoe !  </mat-hint>
+        </div>
+    </div>
+    
     <!-- <button id="center-btn" mat-raised-button color="dark" type="submit" (click)="onSubmit(rateForm)" >Submit</button> -->
 </div>
