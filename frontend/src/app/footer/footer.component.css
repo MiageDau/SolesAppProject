@@ -2,7 +2,9 @@ mat-card-content{
     justify-content: center;
     text-align: center;
 }
-.fixed-bottom{
+.sticky-bottom{
     z-index: -1;
+    margin-top:20px;
+    
 }
 

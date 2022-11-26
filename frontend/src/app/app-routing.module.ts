@@ -9,6 +9,8 @@ import { ShoesPageComponent } from './shoes-page/shoes-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+
 
 
 
@@ -23,7 +25,8 @@ const routes: Routes = [
   {path:"admin",component:AdminShoeComponent},
   {path:"login", component:LoginComponent},
   {path:"register", component:RegisterComponent},
-  {path:"dashboard", component:AdminDashboardComponent}
+  {path:"dashboard", component:AdminDashboardComponent},
+  { path: '**', pathMatch: 'full',component: PagenotfoundComponent },
 ];
 
 @NgModule({

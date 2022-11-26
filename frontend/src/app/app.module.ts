@@ -40,7 +40,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogUpdateRateComponent } from './dialog-update-rate/dialog-update-rate.component'; 
 import {MatTableModule} from '@angular/material/table';
-import { FooterComponent } from './footer/footer.component'; 
+import { FooterComponent } from './footer/footer.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'; 
 
 
 
@@ -62,7 +63,8 @@ import { FooterComponent } from './footer/footer.component';
     RegisterComponent,
     AdminDashboardComponent,
     DialogUpdateRateComponent,
-    FooterComponent
+    FooterComponent,
+    PagenotfoundComponent
 
   ],
   imports: [
