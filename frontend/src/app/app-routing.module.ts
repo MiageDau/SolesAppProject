@@ -26,7 +26,7 @@ const routes: Routes = [
   {path:"login", component:LoginComponent},
   {path:"register", component:RegisterComponent},
   {path:"dashboard", component:AdminDashboardComponent},
-  { path: '**', pathMatch: 'full',component: PagenotfoundComponent },
+  {path: '**', pathMatch: 'full',component: PagenotfoundComponent },
 ];
 
 @NgModule({
