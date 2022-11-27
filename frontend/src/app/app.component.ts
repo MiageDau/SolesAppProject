@@ -12,6 +12,9 @@ export class AppComponent {
   isHome() {
     return this.router.url === '/home';
   }
+  isHomies(){
+    return this.router.url=='/';
+  }
   isProfil() {
     return this.router.url === '/profil';
   }
