@@ -22,6 +22,7 @@ const path = require("path");
 
 
 // Configuration et connexion avec la base de données
+
 mongoose.connect("mongodb+srv://rayan:rayan@cluster0.wue8bd9.mongodb.net/SolesAppProject?retryWrites=true&w=majority")
     .then(()=>{
         console.log('Successfully connected to DB !');
