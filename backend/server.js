@@ -1,4 +1,5 @@
 
+//Importation des librairies et création des variables utiles
 const express = require('express');
 const app = express();
 const session = require('express-session');
@@ -14,15 +15,14 @@ var ObjectId = require('mongoose').Types.ObjectId;
 var { Shoe } = require('./models/shoe');
 var shoeController = require('./controllers/shoeController');
 var rateController = require('./controllers/rateControllers');
-
 var user_id = "";
-const fileUpload = require('express-fileupload');
 const { use } = require('./controllers/shoeController');
 const path = require("path");  
 
 
-// Configuration et connexion avec la base de données
-
+/**
+ * Configuration et connexion avec la base de données MongoDB
+ */
 mongoose.connect("mongodb+srv://rayan:rayan@cluster0.wue8bd9.mongodb.net/SolesAppProject?retryWrites=true&w=majority")
     .then(()=>{
         console.log('Successfully connected to DB !');
@@ -31,13 +31,22 @@ mongoose.connect("mongodb+srv://rayan:rayan@cluster0.wue8bd9.mongodb.net/SolesAp
         console.log('Unable to connect to DB ! ');
         console.log(error);
     });
-//Configuration de CORS
+
+/**
+* Configuration de CORS 
+*/   
 app.use(cors({credentials: true, origin: 'http://localhost:4200'}));
 
-//Configuration du bodyParser
+
+/**
+ * Configuration du bodyParser
+ */
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-//
+
+/**
+ * Configuration de express-session
+ */
 app.use(session({
     secret:"mySecretKey",
     cookie:{maxAge: 24*60*60},
@@ -45,7 +54,10 @@ app.use(session({
 }));
 
 
-//Middleware de connexion
+/**
+ * Middleware permettant la connexion sur le site
+ * Création de la session
+ */
 app.post('/login',(request, response) =>{
     User.findOne({login:request.body.login, password:request.body.password}, (error, user)=>{
         if(error) return response.status(401).json({msg: "Error"});
@@ -67,7 +79,10 @@ app.post('/login',(request, response) =>{
 })
 //Fin du Middleware de connexion
 
-//Middleware d'enregistrement
+
+/**
+ * Middleware permettant l'enregistrement d'un compte sur notre site
+ */
 app.post('/register',(request, response)=>{
     var newUser = new User({
         login: request.body.login,
@@ -95,7 +110,11 @@ app.post('/register',(request, response)=>{
 });
 //Fin du Middleware d'enregistrement
 
-//Middleware de Logout
+
+/**
+ * Middleware permettant la deconnexion d'un utilisateur sur notre site
+ * Destruction de la session
+ */
 app.get('/logout', (request, response) => {
     console.log(request.session)
     request.session.destroy(error => {
@@ -106,7 +125,9 @@ app.get('/logout', (request, response) => {
 });
 //Fin du Middleware de Logout
 
-//Middleware IsLogged
+/**
+ * Middleware permettant de savoir si l'utilisateur est ou non connecté
+ */
 app.get('/islogged', (request,response) => {
     if(!request.session.userId) return response.status(401).json();
 
@@ -136,17 +157,24 @@ app.get('/users', (request,response)=>{
 })
 // Fin du Middlewar getUser
 
-// router.use(express.static('/pictures'));
-// router.use("/pictures", express.static(path.join("backend/pictures")));
+
+/**
+ * Nécessaire pour stocker les images en server
+ */
 app.use('/pictures',express.static('./pictures'));
 
 
-//Middleware get shoes
+/**
+ * Middleware permettant d'avoir l'ensemble des requetes de notre API pour la partie shoe present dans le shoeController
+ */
 app.use('/shoes', shoeController);
 //Fin Middleware get shoes
 
-//Middleware rate
+/**
+ * Middleware permettant d'avoir l'ensemble des requetes de notre API pour la partie Rate present dans le rateController
+ */
 app.use('/rating', rateController);
 //Fin Middleware rate
+
 
 app.listen(3000, ()=>{console.log("Listening in port 3000!")})

@@ -2,35 +2,24 @@ const { request, response } = require('express');
 const express = require('express');
 var router = express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
-
 var { Rate } = require('../models/rate');
 const session = require('express-session');
-
-
-// //Get Rates
-// //http://localhost:3000/rating
+/**
+ * Get Rates 
+ * http://localhost:3000/rating
+ * API Documentation - Permet l'affichage de l'intégralité des notes
+ */
 router.get('/', (request, response) => {
     Rate.find((error, docs) => {
         if (!error) { response.send(docs); }
         else { console.log('Error in retrieving Rates : ' + JSON.stringify(error, undefined, 2)); }
     });
 });
-
-//Get Rates of an user by user_id
-router.get('/userRate', (request, response) => {
-    console.log("response from server :");
-    console.log(request.body.userId);
-    // console.log("User_id venant du site " + request.body.user_id);
-    // let query = {"user_id":request.body.user_id};
-    // Rate.find(query,(error,docs)=>{
-    // if (!error) { response.send(docs); console.log(docs);}
-    // else { console.log('Error in retrieving Rates of user with this id : ' + JSON.stringify(error, undefined, 2)); }
-    // });
-});
-
-
-
-// Noter une paire
+/**
+ * Post Rate
+ * http://localhost:3000/rating
+ * API Documentation - Permet de noter un paire et de sauvegarder cette note en base de données
+ */
 router.post('/', (request,response)=>{
     console.log(request.body);
     var rate = new Rate({
@@ -51,10 +40,11 @@ router.post('/', (request,response)=>{
     })
 })
 
-
-
-//Get Rate with specific _id
-//http://localhost:3000/rating/:id
+/**
+ * Get Rate with specific _id 
+ * http://localhost:3000/rating/:id
+ * API Documentation - Permet d'afficher les informations de la note en fonction de son _id'
+ */
 router.get('/:id', (request, response) => {
     if (!ObjectId.isValid(request.params.id))
         return response.status(400).send(`No record with given id : ${request.params.id}`);
@@ -64,8 +54,11 @@ router.get('/:id', (request, response) => {
     })
 });
 
-
-//update Rate 
+/**
+ * Update Rate with specific _id 
+ * http://localhost:3000/rating/:id
+ * API Documentation - Permet de modifier les informations de la note en fonction de son _id'
+ */
 router.put('/:id', (request, response) => {
     if (!ObjectId.isValid(request.params.id))
         return response.status(400).send(`No record with given id : ${request.params.id}`);
@@ -83,7 +76,11 @@ router.put('/:id', (request, response) => {
     });
 });
 
-// Delete rate
+/**
+ * Delete rate with specific _id 
+ * http://localhost:3000/rating/:id
+ * API Documentation - Permet de supprimer une note en fonction de son _id'
+ */
 router.delete('/:id', (request, response) => {
     if (!ObjectId.isValid(request.params.id))
         return response.status(400).send(`No record with given id : ${request.params.id}`);
