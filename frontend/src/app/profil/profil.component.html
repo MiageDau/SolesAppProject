@@ -102,7 +102,11 @@
                 </th>
             </thead>
             <tr *ngFor="let rate of this.ratesOfUser">
-                <td>{{rate.shoe_name}}</td>
+                <td>
+                    <a href="/shoe/{{rate.shoe_id}}">
+                        {{rate.shoe_name}}
+                    </a>
+                </td>
                 <td>{{rate.amortiGrade}} / 10</td>
                 <td>{{rate.confortGrade}} / 10</td>
                 <td>{{rate.designGrade}} / 10</td>

@@ -372,6 +372,7 @@ export class ShoePageComponent implements OnInit {
         // console.log(totalGradeFinal)
 
         this.totalGrade = totalGradeFinal.toFixed(2);
+        
         //Gestion des couleurs d'affichage du badge
         if(this.totalGrade > "0" && this.totalGrade < "3" ){
           this.badgeColor = "danger";

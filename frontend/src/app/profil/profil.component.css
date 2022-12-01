@@ -86,3 +86,6 @@ table{
 #profil-info{
     font-weight:500;
 }
+a{
+    text-decoration: none;
+}
