@@ -27,7 +27,10 @@ export class ProfilComponent implements OnInit {
     // this.Rates$ = this.rateService.getUserRates();
     this.getAllRates();
     this.getShoes();
+    console.log('userRates');
+
   }
+
 
   getShoes(){
     
@@ -117,14 +120,9 @@ export class ProfilComponent implements OnInit {
     // }
     console.log(this.rateService.selectedRate);
 
-
     this.rateService.selectedRate.amortiGrade;
 
-
-
     console.log(this.rateService.selectedRate.amortiGrade);
-
-
 
   }
 

@@ -37,10 +37,6 @@ export class RatingComponent implements OnInit {
       response.forEach((rate:any) => {
         if(rate.shoe_id == shoe_id && rate.user_id == user_id){
           endCondition = true;
-          // console.log(rate.shoe_id)
-          // console.log(shoe_id)
-          // console.log(rate.user_id)
-          // console.log(user_id)
         }else{
           
         }

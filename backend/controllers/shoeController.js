@@ -5,8 +5,6 @@ var ObjectId = require('mongoose').Types.ObjectId;
 const path = require("path");  
 var { Shoe } = require('../models/shoe');
 const multer = require('multer');
-
-
 /**
  * Initialisation de la librairie Multer pour stocker les images dans le dossier /pictures
  */
@@ -17,8 +15,6 @@ const storage = multer.diskStorage({
     }
 })
 const upload = multer({ storage: storage });
-
-
 /**
  * Get shoes 
  * http://localhost:3000/shoes
@@ -30,8 +26,6 @@ router.get('/', (request, response) => {
         else { console.log('Error in retrieving Shoes : ' + JSON.stringify(error, undefined, 2)); }
     });
 });
-
-
 /**
  * Get shoes with restiction : 5
  * http://localhost:3000/shoes
@@ -43,8 +37,6 @@ router.get('/limit', (request, response) => {
         else { console.log('Error in retrieving Shoes : ' + JSON.stringify(error, undefined, 2)); }
     }).limit(5);
 });
-
-
 /**
  * Post shoes 
  * http://localhost:3000/shoes
@@ -65,7 +57,6 @@ router.post('/', upload.single('file'), (req, res) => {
     shoe.save();
 
 });
-
 /**
  * Get shoe by :id
  * http://localhost:3000/shoes/:id
@@ -79,7 +70,6 @@ router.get('/:id', (request, response) => {
         else { console.log('Error in Shoe save : ' + JSON.stringify(error, undefined, 2)); }
     })
 });
-
 /**
  * Update shoe by :id
  * http://localhost:3000/shoes/:id
@@ -97,7 +87,6 @@ router.put('/:id', (request, response) => {
         else { console.log('Error in Shoe save : ' + JSON.stringify(error, undefined, 2)); }
     });
 });
-
 /**
  * Delete shoe by :id
  * http://localhost:3000/shoes/:id
@@ -112,7 +101,6 @@ router.delete('/:id', (request, response) => {
     })
 
 })
-
 
 module.exports = router;
 

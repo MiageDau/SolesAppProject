@@ -23,7 +23,7 @@ export class AdminDashboardComponent implements OnInit {
     this.refreshShoeList();
   }
 
-// Fonctionne mais pas de gestion des images
+
   onSubmit(form?: NgForm){
     const imageBlob = this.fileupload.nativeElement.files[0];
     const shoeName = form?.value.shoeName;

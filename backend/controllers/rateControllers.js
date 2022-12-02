@@ -15,6 +15,7 @@ router.get('/', (request, response) => {
         else { console.log('Error in retrieving Rates : ' + JSON.stringify(error, undefined, 2)); }
     });
 });
+
 /**
  * Post Rate
  * http://localhost:3000/rating
@@ -53,6 +54,7 @@ router.get('/:id', (request, response) => {
         else { console.log('Error in Rate retrieving : ' + JSON.stringify(error, undefined, 2)); }
     })
 });
+
 
 /**
  * Update Rate with specific _id 
